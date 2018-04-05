@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		EBB0707E2076869200F27775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0707D2076869200F27775 /* AppDelegate.swift */; };
-		EBB070802076869200F27775 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0707F2076869200F27775 /* ViewController.swift */; };
 		EBB070832076869200F27775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB070812076869200F27775 /* Main.storyboard */; };
 		EBB070862076869200F27775 /* StoryOrganizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBB070842076869200F27775 /* StoryOrganizer.xcdatamodeld */; };
 		EBB070882076869200F27775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB070872076869200F27775 /* Assets.xcassets */; };
 		EBB0708B2076869200F27775 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB070892076869200F27775 /* LaunchScreen.storyboard */; };
 		EBB070962076869200F27775 /* StoryOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070952076869200F27775 /* StoryOrganizerTests.swift */; };
 		EBB070A12076869200F27775 /* StoryOrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070A02076869200F27775 /* StoryOrganizerUITests.swift */; };
+		EBB070AF20768A5400F27775 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070AE20768A5400F27775 /* UpcomingEventsViewController.swift */; };
+		EBB070B120768BEC00F27775 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B020768BEC00F27775 /* EventTableViewCell.swift */; };
+		EBB070B3207691D300F27775 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B2207691D300F27775 /* NewEventViewController.swift */; };
+		EBB070B5207691FA00F27775 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */; };
+		EBB070B72076960C00F27775 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B62076960C00F27775 /* PlaybackViewController.swift */; };
+		EBB070B92076961A00F27775 /* NewRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B82076961A00F27775 /* NewRecordingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,6 @@
 /* Begin PBXFileReference section */
 		EBB0707A2076869200F27775 /* StoryOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB0707D2076869200F27775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBB0707F2076869200F27775 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBB070822076869200F27775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBB070852076869200F27775 /* StoryOrganizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoryOrganizer.xcdatamodel; sourceTree = "<group>"; };
 		EBB070872076869200F27775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,12 @@
 		EBB0709C2076869200F27775 /* StoryOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoryOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB070A02076869200F27775 /* StoryOrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryOrganizerUITests.swift; sourceTree = "<group>"; };
 		EBB070A22076869200F27775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBB070AE20768A5400F27775 /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
+		EBB070B020768BEC00F27775 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		EBB070B2207691D300F27775 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		EBB070B62076960C00F27775 /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
+		EBB070B82076961A00F27775 /* NewRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				EBB0707D2076869200F27775 /* AppDelegate.swift */,
-				EBB0707F2076869200F27775 /* ViewController.swift */,
 				EBB070812076869200F27775 /* Main.storyboard */,
 				EBB070872076869200F27775 /* Assets.xcassets */,
 				EBB070892076869200F27775 /* LaunchScreen.storyboard */,
 				EBB0708C2076869200F27775 /* Info.plist */,
 				EBB070842076869200F27775 /* StoryOrganizer.xcdatamodeld */,
+				EBB070AE20768A5400F27775 /* UpcomingEventsViewController.swift */,
+				EBB070B020768BEC00F27775 /* EventTableViewCell.swift */,
+				EBB070B2207691D300F27775 /* NewEventViewController.swift */,
+				EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */,
+				EBB070B62076960C00F27775 /* PlaybackViewController.swift */,
+				EBB070B82076961A00F27775 /* NewRecordingViewController.swift */,
 			);
 			path = StoryOrganizer;
 			sourceTree = "<group>";
@@ -262,8 +277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBB070802076869200F27775 /* ViewController.swift in Sources */,
+				EBB070B5207691FA00F27775 /* EventDetailsViewController.swift in Sources */,
+				EBB070B120768BEC00F27775 /* EventTableViewCell.swift in Sources */,
+				EBB070B92076961A00F27775 /* NewRecordingViewController.swift in Sources */,
 				EBB070862076869200F27775 /* StoryOrganizer.xcdatamodeld in Sources */,
+				EBB070B3207691D300F27775 /* NewEventViewController.swift in Sources */,
+				EBB070AF20768A5400F27775 /* UpcomingEventsViewController.swift in Sources */,
+				EBB070B72076960C00F27775 /* PlaybackViewController.swift in Sources */,
 				EBB0707E2076869200F27775 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
