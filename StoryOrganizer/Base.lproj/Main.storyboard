@@ -97,6 +97,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQC-xo-WJT">
                                 <rect key="frame" x="294" y="64" width="73" height="30"/>
                                 <state key="normal" title="New Event"/>
+                                <connections>
+                                    <action selector="clickedNew:" destination="mS9-vD-Jwy" eventType="touchUpInside" id="9Pk-fI-B9i"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
