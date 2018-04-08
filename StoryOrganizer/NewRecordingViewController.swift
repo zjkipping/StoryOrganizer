@@ -46,11 +46,10 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func saveRecording() {
-
+        // saves the recording/flags and relates them to the proper event
         if let recording = Recording(name: fileName, media: mediaRef, date: Date.init()) {
             
             eventRelationship?.addToRecordings(recording)
@@ -239,7 +238,6 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     
     func newEventCompleted() {
         // somehow save recording to the new event (core data) and move file from temp folder to event folder
-        
         navigationController?.popViewController(animated: true)
     }
     

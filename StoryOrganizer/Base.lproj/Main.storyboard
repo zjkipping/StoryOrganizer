@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohU-L4-q4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="-633"/>
+            <point key="canvasLocation" x="1511" y="-655"/>
         </scene>
         <!--Upcoming Events-->
         <scene sceneID="A5N-9H-T1Q">
@@ -148,7 +148,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ctp-mG-Xkf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-kx-I8b">
+                                <rect key="frame" x="134.5" y="350.5" width="105" height="30"/>
+                                <state key="normal" title="New Recording"/>
+                                <connections>
+                                    <action selector="newRecordingPressed:" destination="Dbc-ao-uur" eventType="touchUpInside" id="bBi-Gg-mb4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="z5h-kx-I8b" firstAttribute="centerY" secondItem="rAx-wy-kEa" secondAttribute="centerY" id="6sE-5Q-Ndf"/>
+                            <constraint firstItem="z5h-kx-I8b" firstAttribute="centerX" secondItem="rAx-wy-kEa" secondAttribute="centerX" id="zGC-W1-DAr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rAx-wy-kEa"/>
                     </view>
                     <connections>
@@ -158,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVS-B5-R4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263" y="45"/>
+            <point key="canvasLocation" x="1511" y="72"/>
         </scene>
         <!--New Recording-->
         <scene sceneID="JtA-Gg-7S6">
@@ -167,13 +180,88 @@
                     <view key="view" contentMode="scaleToFill" id="aM5-4f-vVC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-pM-0lq">
+                                <rect key="frame" x="48" y="350.5" width="75" height="30"/>
+                                <state key="normal" title="Flag Quote"/>
+                                <connections>
+                                    <action selector="flagQuote:" destination="uk9-vg-SIH" eventType="touchUpInside" id="qGt-zV-PyE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvI-TE-uHW">
+                                <rect key="frame" x="269" y="350.5" width="42" height="30"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pausePressed:" destination="uk9-vg-SIH" eventType="touchUpInside" id="dLn-To-lxA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-Z6-hxe">
+                                <rect key="frame" x="187.5" y="303" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6a-ch-Cs3">
+                                <rect key="frame" x="0.0" y="480.5" width="375" height="186.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="flag" textLabel="FSR-t3-OO1" rowHeight="22" style="IBUITableViewCellStyleDefault" id="PDb-tc-s1G">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PDb-tc-s1G" id="50T-EC-IBU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="21.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FSR-t3-OO1">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="21.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZg-sD-r0B">
+                                <rect key="frame" x="163" y="350.5" width="49" height="30"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordPressed:" destination="uk9-vg-SIH" eventType="touchUpInside" id="2bf-sk-Rqk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="leading" secondItem="zBe-pM-0lq" secondAttribute="trailing" constant="40" id="DXW-HQ-kaY"/>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="centerY" secondItem="22s-Rt-nu0" secondAttribute="centerY" id="Dy3-p6-PNt"/>
+                            <constraint firstItem="nvI-TE-uHW" firstAttribute="leading" secondItem="fZg-sD-r0B" secondAttribute="trailing" constant="57" id="F50-TI-Rdf"/>
+                            <constraint firstItem="zBe-pM-0lq" firstAttribute="leading" secondItem="22s-Rt-nu0" secondAttribute="leading" constant="48" id="J73-pr-fyr"/>
+                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="bottom" secondItem="22s-Rt-nu0" secondAttribute="bottom" id="LFH-5o-Gfz"/>
+                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="trailing" secondItem="22s-Rt-nu0" secondAttribute="trailing" id="M0f-ny-Td6"/>
+                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="leading" secondItem="22s-Rt-nu0" secondAttribute="leading" id="MAP-ZC-zQZ"/>
+                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="top" secondItem="zBe-pM-0lq" secondAttribute="bottom" constant="100" id="RJi-MY-Urz"/>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="centerX" secondItem="22s-Rt-nu0" secondAttribute="centerX" id="TYN-Rm-xNL"/>
+                            <constraint firstItem="nvI-TE-uHW" firstAttribute="centerY" secondItem="22s-Rt-nu0" secondAttribute="centerY" id="XIv-VF-SwS"/>
+                            <constraint firstItem="xsy-Z6-hxe" firstAttribute="centerX" secondItem="22s-Rt-nu0" secondAttribute="centerX" id="Xej-d5-wiF"/>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="top" secondItem="xsy-Z6-hxe" secondAttribute="bottom" constant="47.5" id="hmO-x4-bZP"/>
+                            <constraint firstItem="zBe-pM-0lq" firstAttribute="centerY" secondItem="22s-Rt-nu0" secondAttribute="centerY" id="jOR-s2-c7X"/>
+                            <constraint firstItem="22s-Rt-nu0" firstAttribute="trailing" secondItem="nvI-TE-uHW" secondAttribute="trailing" constant="64" id="tIR-UX-kqk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="22s-Rt-nu0"/>
                     </view>
+                    <connections>
+                        <outlet property="flagQuoteButton" destination="zBe-pM-0lq" id="3fr-ML-8zi"/>
+                        <outlet property="flagTable" destination="d6a-ch-Cs3" id="mY0-6C-XpW"/>
+                        <outlet property="pauseButton" destination="nvI-TE-uHW" id="A33-Dd-3cb"/>
+                        <outlet property="recordButton" destination="fZg-sD-r0B" id="W5W-n4-ivH"/>
+                        <outlet property="timeLabel" destination="xsy-Z6-hxe" id="T00-hb-B2V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbf-Lz-fgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="798"/>
+            <point key="canvasLocation" x="620" y="842"/>
         </scene>
         <!--Playback-->
         <scene sceneID="s7g-Iu-cJF">
@@ -188,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfK-mw-1Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="45"/>
+            <point key="canvasLocation" x="2266" y="72"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

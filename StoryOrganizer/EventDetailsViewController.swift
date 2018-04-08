@@ -29,15 +29,21 @@ class EventDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
+    @IBAction func newRecordingPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "showNewRecording", sender: self)
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showNewRecording") {
+            // let destinationController = segue.destination as! NewRecordingViewController
+            
+            // eventually set this to the Event.name
+            // destinationController.saveDirectory = event.name
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
 }

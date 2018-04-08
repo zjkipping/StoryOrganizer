@@ -28,6 +28,7 @@
 		EBB070B5207691FA00F27775 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */; };
 		EBB070B72076960C00F27775 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B62076960C00F27775 /* PlaybackViewController.swift */; };
 		EBB070B92076961A00F27775 /* NewRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B82076961A00F27775 /* NewRecordingViewController.swift */; };
+		EBCFF7F7208150C40062E316 /* Recoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF7F6208150C40062E316 /* Recoding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		EBB070B62076960C00F27775 /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
 		EBB070B82076961A00F27775 /* NewRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordingViewController.swift; sourceTree = "<group>"; };
+		EBCFF7F6208150C40062E316 /* Recoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recoding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,12 +307,14 @@
 				09BC533D207FBAA400814D43 /* Flag+CoreDataProperties.swift in Sources */,
 				EBB070B5207691FA00F27775 /* EventDetailsViewController.swift in Sources */,
 				EBB070B120768BEC00F27775 /* EventTableViewCell.swift in Sources */,
+				EB76AD43207FCAA300585152 /* URL.swift in Sources */,
 				EBB070B92076961A00F27775 /* NewRecordingViewController.swift in Sources */,
 				EBB070862076869200F27775 /* StoryOrganizer.xcdatamodeld in Sources */,
 				09BC5338207FBAA400814D43 /* Event+CoreDataClass.swift in Sources */,
 				097E5A502089023D00AD5287 /* URL.swift in Sources */,
 				097E5A4E2088E98700AD5287 /* FlagViewController.swift in Sources */,
 				EBB070B3207691D300F27775 /* NewEventViewController.swift in Sources */,
+				EBCFF7F7208150C40062E316 /* Recoding.swift in Sources */,
 				EBB070AF20768A5400F27775 /* UpcomingEventsViewController.swift in Sources */,
 				EBB070B72076960C00F27775 /* PlaybackViewController.swift in Sources */,
 				09BC533B207FBAA400814D43 /* Recording+CoreDataProperties.swift in Sources */,
