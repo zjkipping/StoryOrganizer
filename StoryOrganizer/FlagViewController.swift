@@ -1,23 +1,15 @@
 //
-//  EventDetailsViewController.swift
+//  FlagViewController.swift
 //  StoryOrganizer
 //
-//  Created by Zachary Kipping on 4/5/18.
+//  Created by Adam Thoma-Perry on 4/19/18.
 //  Copyright © 2018 Zachary Kipping. All rights reserved.
 //
 
 import UIKit
 
-class EventDetailsViewController: UIViewController {
+class FlagViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var topicLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
