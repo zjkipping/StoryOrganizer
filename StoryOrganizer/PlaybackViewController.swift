@@ -14,11 +14,15 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var flagTableView: UITableView!
+    @IBOutlet weak var timeLabel: UILabel!
     
-    var player: AVAudioPlayer!
+    var playbackTimer: Timer!
+    var avPlayer: AVPlayer!
+    var avItem: AVPlayerItem!
     var recording: Recording?
+    var finished: Bool = false
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,25 +30,36 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.flagTableView.dataSource = self
         self.flagTableView.delegate = self
-
+        
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [])
             try AVAudioSession.sharedInstance().setActive(true)
-            
-            let url = getDocumentsDirectory().appendingPathComponent(recording!.media!)
-            
-            self.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.m4a.rawValue)
-            
-            self.player.isMeteringEnabled = true
-            // do same audio visualization as the new recording page?
-            
-            self.playButton.isEnabled = true
-            self.restartButton.isEnabled = true
+            if let recording = self.recording, let media = recording.media {
+                print(media)
+                let url = getDocumentsDirectory().appendingPathComponent(media)
+                print(url)
+                
+                self.avItem = AVPlayerItem(url: url)
+                
+                NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: avItem)
+                
+                self.avPlayer = AVPlayer(playerItem: self.avItem)
+                
+                self.playbackTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.playbackLoop), userInfo: nil, repeats: true)
+
+                self.playButton.isEnabled = true
+                self.restartButton.isEnabled = true
+            }
         } catch let error {
             print(error.localizedDescription)
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func playerDidFinishPlaying(note: NSNotification) {
+        self.playButton.setTitle("Re-Play", for: .normal)
+        self.finished = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +70,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -63,37 +78,69 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "flag", for: indexPath)
         
-        //        cell.textLabel!.text = "Flag Time: \(String(format: "%.2f", self.flags[indexPath.row])) seconds"
+        guard let recording = self.recording, let flags = recording.flags else {
+            return cell
+        }
         
+        let flag = flags[indexPath.row] as! Flag
+        
+        cell.textLabel?.text = "\(flag.name ?? "") \(String(format: "%.2f", flag.time)) seconds"
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // self.player.currentTime = flags[indexPath.row].time
+        guard let recording = self.recording, let flags = recording.flags else {
+            return
+        }
+        
+        let flag = flags[indexPath.row] as! Flag
+        self.avPlayer.seek(to: CMTime.init(seconds: flag.time, preferredTimescale: 1))
+        print(self.avPlayer.timeControlStatus)
+    }
+    
+    @objc func playbackLoop() {
+        // handle updates from the record session: time, channel values, etc...
+        if (self.avPlayer != nil) {
+            let rawSeconds = CMTimeGetSeconds(self.avPlayer.currentTime())
+            let seconds = Double(rawSeconds)
+            self.timeLabel.text = "Current Time: \(String(format: "%.0f", seconds)) seconds"
+        }
     }
     
     @IBAction func playPressed(_ sender: UIButton) {
-        if self.player != nil {
-            if (self.player.isPlaying) {
-                self.player.pause()
+        if self.avPlayer != nil {
+            if (self.finished == true) {
+                self.finished = false
+                self.avPlayer.seek(to: kCMTimeZero)
+                self.avPlayer.play()
+                self.playButton.setTitle("Pause", for: .normal)
+                return
+            }
+            if (self.avPlayer.timeControlStatus == .playing) {
+                self.avPlayer.pause()
                 self.playButton.setTitle("Resume", for: .normal)
-            } else {
-                self.player.play()
+            } else if (self.avPlayer.timeControlStatus == .paused) {
+                self.avPlayer.play()
                 self.playButton.setTitle("Pause", for: .normal)
             }
         }
     }
-
+    
     @IBAction func restartPressed(_ sender: UIButton) {
-        if self.player != nil {
-            self.player.currentTime = 0
+        if self.avPlayer != nil {
+            self.avPlayer.seek(to: kCMTimeZero)
+            if (self.finished) {
+                self.finished = false
+                self.avPlayer.play()
+                self.playButton.setTitle("Pause", for: .normal)
+            }
         }
     }
     
     func getDocumentsDirectory() -> URL {
         // gets the path for the general documents directory
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        print(paths[0])
         return paths[0]
     }
 }

@@ -35,7 +35,6 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
         
         do {
             events = try managedContext.fetch(fetchRequest)
-            print(events)
             tableView.reloadData()
         } catch {
             print("Could not fetch")
