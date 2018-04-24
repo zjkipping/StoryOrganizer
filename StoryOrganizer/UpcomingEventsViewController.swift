@@ -44,12 +44,12 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showNewRecording") {
-            let destinationController = segue.destination as! NewRecordingViewController
+            // let destinationController = segue.destination as! NewRecordingViewController
             
             // eventually set this to the Event.name
             // destinationController.saveDirectory = event.name
         } else if (segue.identifier == "showNewEvent") {
-            let destinationController = segue.destination as! NewEventViewController
+            // let destinationController = segue.destination as! NewEventViewController
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
