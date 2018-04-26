@@ -44,6 +44,22 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func showActionAlert(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "New Event", style: .default , handler:{ (UIAlertAction)in
+            self.performSegue(withIdentifier: "showNewEvent", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "New Recording", style: .default , handler:{ (UIAlertAction)in
+            self.performSegue(withIdentifier: "showNewRecording", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alert, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showNewRecording") {
             // let destinationController = segue.destination as! NewRecordingViewController
@@ -67,12 +83,16 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Event", for: indexPath) as! EventTableViewCell
-        //let event = events[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Event", for: indexPath)
+        let event = events[indexPath.row]
         
-        cell.title.text = "Test"
-        //cell.name.text = event.name
-        //cell.date.text = event.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        
+        cell.textLabel?.text = event.name
+        cell.detailTextLabel?.text = dateFormatter.string(for: event.date)
         
         return cell
     }
@@ -118,17 +138,4 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
-
-//extension UpcomingEventsViewController: UITableViewDataSource, UITableViewDelegate {
-//
-//}

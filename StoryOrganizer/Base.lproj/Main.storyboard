@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -109,6 +108,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UaQ-ln-vHI" firstAttribute="centerY" secondItem="46a-U3-4jH" secondAttribute="centerY" id="19f-tb-fxn"/>
                             <constraint firstItem="kry-CR-17S" firstAttribute="leading" secondItem="Hzj-er-QH5" secondAttribute="leading" constant="114" id="1pU-hR-gLv"/>
@@ -149,10 +149,9 @@
                             <constraint firstItem="NBG-nA-sTw" firstAttribute="leading" secondItem="Hzj-er-QH5" secondAttribute="leading" constant="114" id="zv5-X6-Mq6"/>
                             <constraint firstItem="Hzj-er-QH5" firstAttribute="trailing" secondItem="Eh5-PK-F4A" secondAttribute="trailing" constant="60" id="zvg-fc-xnz"/>
                         </constraints>
-                        <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Hzj-er-QH5"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Item" id="qFl-Nc-LiW">
+                    <navigationItem key="navigationItem" title="New Event" id="qFl-Nc-LiW">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="lKg-Z1-EMJ">
                             <connections>
                                 <action selector="saveNewEvent:" destination="vfk-5Z-RcN" id="icS-GV-tCe"/>
@@ -186,29 +185,30 @@
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Event" id="0mn-w2-bWf" customClass="EventTableViewCell" customModule="StoryOrganizer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Event" textLabel="gGK-tT-dgl" detailTextLabel="DYL-IH-vh7" style="IBUITableViewCellStyleSubtitle" id="0mn-w2-bWf" customClass="EventTableViewCell" customModule="StoryOrganizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0mn-w2-bWf" id="9me-Gq-af5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-bt-5p3">
-                                                    <rect key="frame" x="19" y="15" width="337" height="18"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gGK-tT-dgl">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DYL-IH-vh7">
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Jbh-bt-5p3" firstAttribute="leading" secondItem="9me-Gq-af5" secondAttribute="leadingMargin" constant="4" id="BhM-Nk-ymA"/>
-                                                <constraint firstItem="Jbh-bt-5p3" firstAttribute="top" secondItem="9me-Gq-af5" secondAttribute="topMargin" constant="4" id="TSm-ls-qyJ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Jbh-bt-5p3" secondAttribute="trailing" constant="4" id="oJB-lJ-CaR"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Jbh-bt-5p3" secondAttribute="bottom" id="xoG-Ud-Qe4"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="title" destination="Jbh-bt-5p3" id="hOF-8d-PHY"/>
                                             <segue destination="Dbc-ao-uur" kind="show" id="UcD-dN-dxV"/>
                                         </connections>
                                     </tableViewCell>
@@ -225,6 +225,7 @@
                         <viewLayoutGuide key="safeArea" id="Ogt-7C-Mom"/>
                     </view>
                     <navigationItem key="navigationItem" title="Purpl" id="zpA-du-YbM">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="935-c5-8GG"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="HJk-GC-0ZU">
                             <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Events" textAlignment="natural" minimumFontSize="17" id="YxL-KL-t2M">
                                 <rect key="frame" x="16" y="7" width="114" height="30"/>
@@ -236,6 +237,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="n4s-MH-zAe">
                             <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="showActionAlert:" destination="mS9-vD-Jwy" id="l1g-pn-A5S"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
