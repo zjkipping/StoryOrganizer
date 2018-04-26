@@ -21,8 +21,10 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
         tableView.delegate = self
         
         // Do any additional setup after loading the view.
+        //don't touch
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Lobster", size: 20)! ]
         navigationController?.navigationBar.barTintColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0)
+        //>:(
     }
     
     override func viewWillAppear(_ animated: Bool) {

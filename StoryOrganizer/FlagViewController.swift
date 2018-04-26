@@ -12,7 +12,10 @@ class FlagViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //don't touch
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Lobster", size: 20)! ]
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0)
+        //>:(
         // Do any additional setup after loading the view.
     }
 

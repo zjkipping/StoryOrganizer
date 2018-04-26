@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumGothic-Regular.ttf">
+            <string>NanumGothic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="NnE-df-0rI">
@@ -67,7 +72,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaQ-ln-vHI">
                                 <rect key="frame" x="34" y="115" width="42" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -78,37 +83,37 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0y-tm-zvT">
-                                <rect key="frame" x="34" y="166" width="45" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="34" y="168" width="45" height="17.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prM-q9-b5I">
-                                <rect key="frame" x="34" y="212" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="34" y="214" width="49" height="17.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvw-jr-kJv">
-                                <rect key="frame" x="34" y="258" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="34" y="260" width="41" height="17.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuE-pA-CTH">
-                                <rect key="frame" x="33" y="303.5" width="63" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="33" y="305.5" width="63" height="17.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date/Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcE-0W-I4h">
-                                <rect key="frame" x="33" y="350" width="79.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="33" y="352" width="79.5" height="17.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UaQ-ln-vHI" firstAttribute="centerY" secondItem="46a-U3-4jH" secondAttribute="centerY" id="19f-tb-fxn"/>
@@ -154,6 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Event" id="qFl-Nc-LiW">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="lKg-Z1-EMJ">
+                            <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveNewEvent:" destination="vfk-5Z-RcN" id="icS-GV-tCe"/>
                             </connections>
@@ -277,80 +283,81 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oek-uE-7xL">
-                                <rect key="frame" x="16" y="127" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="127" width="43.5" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rah-v8-DPL">
-                                <rect key="frame" x="16" y="176" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="173.5" width="48.5" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-UQ-EXw">
-                                <rect key="frame" x="16" y="232" width="54" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-UQ-EXw">
+                                <rect key="frame" x="16" y="227" width="57" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hen-Yh-xMb">
-                                <rect key="frame" x="16" y="286" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="278.5" width="46" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5E-dZ-cij">
-                                <rect key="frame" x="16" y="341" width="68" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="331" width="64" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQF-Ke-ySx">
-                                <rect key="frame" x="16" y="387" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="374.5" width="40" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PH-DOI">
-                                <rect key="frame" x="92" y="127" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PH-DOI">
+                                <rect key="frame" x="89.5" y="127" width="44.5" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaK-qC-cpy">
-                                <rect key="frame" x="92" y="341" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaK-qC-cpy">
+                                <rect key="frame" x="88" y="331" width="46" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puV-H6-kPJ">
-                                <rect key="frame" x="92" y="176" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puV-H6-kPJ">
+                                <rect key="frame" x="90.5" y="173.5" width="43.5" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFP-WJ-fCY">
-                                <rect key="frame" x="92" y="232" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="95" y="227" width="39" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kib-do-Qaw">
-                                <rect key="frame" x="92" y="286" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kib-do-Qaw">
+                                <rect key="frame" x="92" y="278.5" width="42" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ar-SU-sFG">
-                                <rect key="frame" x="92" y="387" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ar-SU-sFG">
+                                <rect key="frame" x="91" y="374.5" width="43" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-fP-ahK">
                                 <rect key="frame" x="0.0" y="467" width="375" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recording" textLabel="2ZN-Nn-GDM" detailTextLabel="cIu-CN-S4c" style="IBUITableViewCellStyleSubtitle" id="mZT-aw-4rD">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -382,13 +389,13 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recordings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEY-SD-q99">
-                                <rect key="frame" x="144" y="438" width="86.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="136.5" y="435.5" width="102.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PoY-fP-ahK" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" id="1TD-Ef-cFm"/>
@@ -440,7 +447,7 @@
                                     <segue destination="vfk-5Z-RcN" kind="show" identifier="showEventEdit" id="rEB-rR-auo"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" systemItem="camera" id="ATc-Tl-uIB">
+                            <barButtonItem style="plain" systemItem="add" id="ATc-Tl-uIB">
                                 <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="newRecording:" destination="Dbc-ao-uur" id="tj6-4M-Ity"/>
@@ -471,28 +478,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-pM-0lq">
-                                <rect key="frame" x="48" y="350.5" width="75" height="30"/>
-                                <state key="normal" title="Flag Quote"/>
+                            <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-pM-0lq">
+                                <rect key="frame" x="44" y="362" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="LL5-pt-6G4"/>
+                                    <constraint firstAttribute="height" constant="54" id="OSb-w5-JF5"/>
+                                </constraints>
+                                <state key="normal" title="Flag Quote" image="star.png"/>
                                 <connections>
                                     <action selector="flagQuote:" destination="uk9-vg-SIH" eventType="touchUpInside" id="qGt-zV-PyE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvI-TE-uHW">
-                                <rect key="frame" x="269" y="350.5" width="42" height="30"/>
-                                <state key="normal" title="Pause"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvI-TE-uHW">
+                                <rect key="frame" x="283" y="362" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="4N6-eX-bDC"/>
+                                    <constraint firstAttribute="height" constant="54" id="MHi-v3-Z7A"/>
+                                </constraints>
+                                <state key="normal" title="Pause" image="pause.png"/>
                                 <connections>
                                     <action selector="pausePressed:" destination="uk9-vg-SIH" eventType="touchUpInside" id="dLn-To-lxA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-Z6-hxe">
-                                <rect key="frame" x="187.5" y="303" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-Z6-hxe">
+                                <rect key="frame" x="88" y="147" width="199.5" height="54.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="47"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZg-sD-r0B">
+                                <rect key="frame" x="147" y="349" width="81" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="1VZ-1c-uJc"/>
+                                    <constraint firstAttribute="height" constant="81" id="qWC-vw-s71"/>
+                                </constraints>
+                                <state key="normal" title="Record" image="record.png"/>
+                                <connections>
+                                    <action selector="recordPressed:" destination="uk9-vg-SIH" eventType="touchUpInside" id="2bf-sk-Rqk"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6a-ch-Cs3">
-                                <rect key="frame" x="0.0" y="480.5" width="375" height="186.5"/>
+                                <rect key="frame" x="0.0" y="450" width="375" height="217"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -515,31 +541,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZg-sD-r0B">
-                                <rect key="frame" x="163" y="350.5" width="49" height="30"/>
-                                <state key="normal" title="Record"/>
-                                <connections>
-                                    <action selector="recordPressed:" destination="uk9-vg-SIH" eventType="touchUpInside" id="2bf-sk-Rqk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fZg-sD-r0B" firstAttribute="leading" secondItem="zBe-pM-0lq" secondAttribute="trailing" constant="40" id="DXW-HQ-kaY"/>
-                            <constraint firstItem="fZg-sD-r0B" firstAttribute="centerY" secondItem="22s-Rt-nu0" secondAttribute="centerY" id="Dy3-p6-PNt"/>
-                            <constraint firstItem="nvI-TE-uHW" firstAttribute="leading" secondItem="fZg-sD-r0B" secondAttribute="trailing" constant="57" id="F50-TI-Rdf"/>
-                            <constraint firstItem="zBe-pM-0lq" firstAttribute="leading" secondItem="22s-Rt-nu0" secondAttribute="leading" constant="48" id="J73-pr-fyr"/>
-                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="bottom" secondItem="22s-Rt-nu0" secondAttribute="bottom" id="LFH-5o-Gfz"/>
-                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="trailing" secondItem="22s-Rt-nu0" secondAttribute="trailing" id="M0f-ny-Td6"/>
-                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="leading" secondItem="22s-Rt-nu0" secondAttribute="leading" id="MAP-ZC-zQZ"/>
-                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="top" secondItem="zBe-pM-0lq" secondAttribute="bottom" constant="100" id="RJi-MY-Urz"/>
-                            <constraint firstItem="fZg-sD-r0B" firstAttribute="centerX" secondItem="22s-Rt-nu0" secondAttribute="centerX" id="TYN-Rm-xNL"/>
-                            <constraint firstItem="nvI-TE-uHW" firstAttribute="centerY" secondItem="22s-Rt-nu0" secondAttribute="centerY" id="XIv-VF-SwS"/>
-                            <constraint firstItem="xsy-Z6-hxe" firstAttribute="centerX" secondItem="22s-Rt-nu0" secondAttribute="centerX" id="Xej-d5-wiF"/>
-                            <constraint firstItem="fZg-sD-r0B" firstAttribute="top" secondItem="xsy-Z6-hxe" secondAttribute="bottom" constant="47.5" id="hmO-x4-bZP"/>
-                            <constraint firstItem="zBe-pM-0lq" firstAttribute="centerY" secondItem="22s-Rt-nu0" secondAttribute="centerY" id="jOR-s2-c7X"/>
-                            <constraint firstItem="22s-Rt-nu0" firstAttribute="trailing" secondItem="nvI-TE-uHW" secondAttribute="trailing" constant="64" id="tIR-UX-kqk"/>
+                            <constraint firstItem="xsy-Z6-hxe" firstAttribute="top" secondItem="22s-Rt-nu0" secondAttribute="top" constant="83" id="2He-jz-5uT"/>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="centerX" secondItem="22s-Rt-nu0" secondAttribute="centerX" id="5iQ-Ss-bvV"/>
+                            <constraint firstItem="nvI-TE-uHW" firstAttribute="top" secondItem="xsy-Z6-hxe" secondAttribute="bottom" constant="160.5" id="8pg-jy-xz3"/>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="top" secondItem="xsy-Z6-hxe" secondAttribute="bottom" constant="147.5" id="Foz-D3-Dl8"/>
+                            <constraint firstItem="nvI-TE-uHW" firstAttribute="leading" secondItem="fZg-sD-r0B" secondAttribute="trailing" constant="55" id="QBD-Zi-51R"/>
+                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="top" secondItem="fZg-sD-r0B" secondAttribute="bottom" constant="20" id="Yoj-3P-TRb"/>
+                            <constraint firstItem="d6a-ch-Cs3" firstAttribute="leading" secondItem="22s-Rt-nu0" secondAttribute="leading" id="iVH-JM-C1f"/>
+                            <constraint firstItem="zBe-pM-0lq" firstAttribute="top" secondItem="xsy-Z6-hxe" secondAttribute="bottom" constant="160.5" id="iXx-a3-eLd"/>
+                            <constraint firstItem="xsy-Z6-hxe" firstAttribute="centerX" secondItem="22s-Rt-nu0" secondAttribute="centerX" id="j1W-4X-Qrw"/>
+                            <constraint firstItem="22s-Rt-nu0" firstAttribute="trailing" secondItem="d6a-ch-Cs3" secondAttribute="trailing" id="l0F-Ak-FcY"/>
+                            <constraint firstItem="fZg-sD-r0B" firstAttribute="leading" secondItem="zBe-pM-0lq" secondAttribute="trailing" constant="49" id="oJv-FG-xOy"/>
+                            <constraint firstItem="22s-Rt-nu0" firstAttribute="bottom" secondItem="d6a-ch-Cs3" secondAttribute="bottom" id="yrQ-WG-QF0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="22s-Rt-nu0"/>
                     </view>
@@ -553,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbf-Lz-fgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="842"/>
+            <point key="canvasLocation" x="620" y="841.52923538230891"/>
         </scene>
         <!--Playback-->
         <scene sceneID="s7g-Iu-cJF">
@@ -563,22 +580,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzg-H2-hVs">
-                                <rect key="frame" x="172" y="350.5" width="30" height="30"/>
-                                <state key="normal" title="Play"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzg-H2-hVs">
+                                <rect key="frame" x="160.5" y="338.5" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="40o-8z-ZVE"/>
+                                    <constraint firstAttribute="height" constant="54" id="8Kf-Dd-Dyz"/>
+                                </constraints>
+                                <state key="normal" title="Play" image="play.png"/>
                                 <connections>
                                     <action selector="playPressed:" destination="faE-ep-NUw" eventType="touchUpInside" id="Vf0-XX-vuh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akS-PG-MnR">
-                                <rect key="frame" x="71" y="350.5" width="50" height="30"/>
-                                <state key="normal" title="Restart"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akS-PG-MnR">
+                                <rect key="frame" x="71" y="349.5" width="38.5" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32.399999999999999" id="ILv-Ru-h0l"/>
+                                </constraints>
+                                <state key="normal" title="Restart" image="rewinder.png"/>
                                 <connections>
                                     <action selector="restartPressed:" destination="faE-ep-NUw" eventType="touchUpInside" id="gQz-ec-kW0"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CYI-Dx-eeJ">
-                                <rect key="frame" x="0.0" y="430.5" width="375" height="236.5"/>
+                                <rect key="frame" x="0.0" y="442.5" width="375" height="224.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="flag" textLabel="t6a-z3-LhE" detailTextLabel="9Cc-dK-1Kw" style="IBUITableViewCellStyleSubtitle" id="LaN-Be-xhe">
@@ -607,14 +631,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-p1-6mc">
-                                <rect key="frame" x="166" y="294" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-p1-6mc">
+                                <rect key="frame" x="88" y="248.5" width="199.5" height="54.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="47"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QqQ-W6-Ilu" firstAttribute="trailing" secondItem="CYI-Dx-eeJ" secondAttribute="trailing" id="0xh-SD-HoO"/>
@@ -622,16 +646,16 @@
                             <constraint firstItem="akS-PG-MnR" firstAttribute="centerY" secondItem="QqQ-W6-Ilu" secondAttribute="centerY" id="WZk-2h-UA7"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="centerY" secondItem="QqQ-W6-Ilu" secondAttribute="centerY" id="ZUr-Fm-0nd"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="top" secondItem="4oi-p1-6mc" secondAttribute="bottom" constant="35.5" id="aQX-dX-Lk9"/>
-                            <constraint firstItem="QqQ-W6-Ilu" firstAttribute="trailing" secondItem="Rzg-H2-hVs" secondAttribute="trailing" constant="173" id="cEC-3h-Md4"/>
                             <constraint firstItem="CYI-Dx-eeJ" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" id="eNX-ev-k4j"/>
                             <constraint firstItem="QqQ-W6-Ilu" firstAttribute="bottom" secondItem="CYI-Dx-eeJ" secondAttribute="bottom" id="ifT-ay-hw9"/>
                             <constraint firstItem="akS-PG-MnR" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" constant="71" id="m8p-8N-fox"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="leading" secondItem="akS-PG-MnR" secondAttribute="trailing" constant="51" id="rfi-1a-7HG"/>
+                            <constraint firstItem="Rzg-H2-hVs" firstAttribute="centerX" secondItem="QqQ-W6-Ilu" secondAttribute="centerX" id="rhe-qg-hiw"/>
                             <constraint firstItem="4oi-p1-6mc" firstAttribute="centerX" secondItem="QqQ-W6-Ilu" secondAttribute="centerX" id="y97-3i-lkf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QqQ-W6-Ilu"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="aub-om-GMO">
+                    <navigationItem key="navigationItem" title="Playback" id="aub-om-GMO">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="mRl-bY-VCb">
                             <color key="tintColor" red="0.47843137250000001" green="0.30588235289999999" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
@@ -648,6 +672,13 @@
             <point key="canvasLocation" x="2266" y="72"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause.png" width="1500" height="1500"/>
+        <image name="play.png" width="1500" height="1500"/>
+        <image name="record.png" width="1500" height="1500"/>
+        <image name="rewinder.png" width="1500" height="900"/>
+        <image name="star.png" width="1500" height="1500"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ITd-F0-Zpe"/>
         <segue reference="rEB-rR-auo"/>
