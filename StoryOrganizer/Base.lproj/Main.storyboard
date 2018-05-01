@@ -437,6 +437,7 @@
                                 <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="editPressed:" destination="Dbc-ao-uur" id="oQg-vb-4Vz"/>
+                                    <segue destination="vfk-5Z-RcN" kind="show" identifier="showEventEdit" id="rEB-rR-auo"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" systemItem="camera" id="ATc-Tl-uIB">
@@ -649,5 +650,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ITd-F0-Zpe"/>
+        <segue reference="rEB-rR-auo"/>
     </inferredMetricsTieBreakers>
 </document>

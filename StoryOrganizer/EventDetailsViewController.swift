@@ -127,6 +127,13 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
             let selectedIndexPath = tableView.indexPathForSelectedRow
             
             destinationController.recording = self.event?.recordings?[selectedIndexPath?.row ?? 0] as? Recording
+        } else if (segue.identifier == "showEventEdit"){
+            let destinationController = segue.destination as! NewEventViewController
+            guard let passingEvent = event else {
+                return
+            }
+            destinationController.existingEvent = passingEvent
+            
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
