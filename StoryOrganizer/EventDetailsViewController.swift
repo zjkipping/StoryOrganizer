@@ -30,6 +30,8 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool) {
         if let event = self.event {
             let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
             
             self.nameLabel.text = event.name ?? ""
             self.topicLabel.text = event.topic ?? ""
