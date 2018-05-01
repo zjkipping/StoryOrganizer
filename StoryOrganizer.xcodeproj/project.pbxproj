@@ -25,7 +25,6 @@
 		EBB070962076869200F27775 /* StoryOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070952076869200F27775 /* StoryOrganizerTests.swift */; };
 		EBB070A12076869200F27775 /* StoryOrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070A02076869200F27775 /* StoryOrganizerUITests.swift */; };
 		EBB070AF20768A5400F27775 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070AE20768A5400F27775 /* UpcomingEventsViewController.swift */; };
-		EBB070B120768BEC00F27775 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B020768BEC00F27775 /* EventTableViewCell.swift */; };
 		EBB070B3207691D300F27775 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B2207691D300F27775 /* NewEventViewController.swift */; };
 		EBB070B5207691FA00F27775 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */; };
 		EBB070B72076960C00F27775 /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB070B62076960C00F27775 /* PlaybackViewController.swift */; };
@@ -74,7 +73,6 @@
 		EBB070A02076869200F27775 /* StoryOrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryOrganizerUITests.swift; sourceTree = "<group>"; };
 		EBB070A22076869200F27775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB070AE20768A5400F27775 /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
-		EBB070B020768BEC00F27775 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		EBB070B2207691D300F27775 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		EBB070B62076960C00F27775 /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 		29BC6CD3208F936300D9227D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				EBCFF7F6208150C40062E316 /* Recoding.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -162,7 +159,6 @@
 				EBB070842076869200F27775 /* StoryOrganizer.xcdatamodeld */,
 				EBB070AE20768A5400F27775 /* UpcomingEventsViewController.swift */,
 				097E5A4D2088E98700AD5287 /* FlagViewController.swift */,
-				EBB070B020768BEC00F27775 /* EventTableViewCell.swift */,
 				EBB070B2207691D300F27775 /* NewEventViewController.swift */,
 				EBB070B4207691FA00F27775 /* EventDetailsViewController.swift */,
 				EBB070B62076960C00F27775 /* PlaybackViewController.swift */,
@@ -329,7 +325,6 @@
 				09BC5339207FBAA400814D43 /* Event+CoreDataProperties.swift in Sources */,
 				09BC533D207FBAA400814D43 /* Flag+CoreDataProperties.swift in Sources */,
 				EBB070B5207691FA00F27775 /* EventDetailsViewController.swift in Sources */,
-				EBB070B120768BEC00F27775 /* EventTableViewCell.swift in Sources */,
 				EBB070B92076961A00F27775 /* NewRecordingViewController.swift in Sources */,
 				EBB070862076869200F27775 /* StoryOrganizer.xcdatamodeld in Sources */,
 				09BC5338207FBAA400814D43 /* Event+CoreDataClass.swift in Sources */,

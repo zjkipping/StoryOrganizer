@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreData
 
-class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDataSource, UITableViewDelegate {
+class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
     let fileManager: FileManager = FileManager.default
     var session: AVAudioSession!
     var recorder: AVAudioRecorder!
@@ -24,7 +24,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     ]
     var fileName: String = ""
     var mediaRef: String = ""
-    var saveDirectory: String?
+    var saveDirectory: String = "temp"
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
@@ -33,7 +33,6 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     @IBOutlet weak var flagTable: UITableView!
     
     var eventRelationship: Event?
-    var recordingRelationship: Recording?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,24 +50,19 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     func saveRecording() {
         // saves the recording/flags and relates them to the proper event
         if let recording = Recording(name: fileName, media: mediaRef, date: Date.init()) {
-            
             eventRelationship?.addToRecordings(recording)
-            
+            do {
+                try recording.managedObjectContext?.save()
+            } catch {
+                print("Recording could not be created")
+            }
             do {
                 for flag in self.flags {
+                    recording.addToFlags(flag)
                     try flag.managedObjectContext?.save()
                 }
             } catch {
                 print("Flag could not be created")
-            }
-            
-            recordingRelationship?.addToFlags(flags)
-            
-            do {
-                try recording.managedObjectContext?.save()
-                self.navigationController?.popViewController(animated: true)
-            } catch {
-                print("Recording could not be created")
             }
         }
     }
@@ -84,7 +78,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "flag", for: indexPath)
         
-        cell.textLabel?.text = "\(self.flags) \(String(format: "%.2f", self.flags[indexPath.row])) seconds"
+        let flag = self.flags[indexPath.row]
+        
+        cell.textLabel?.text = "\(flag.name ?? "") \(String(format: "%.2f", flag.time)) seconds"
         
         return cell
     }
@@ -125,7 +121,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     
     @IBAction func recordPressed(_ sender: UIButton) {
         // swap between start recording and end recording states
-        (self.recorder.currentTime == 0.0 || self.recorder == nil) ? self.startRecording() : self.finishRecording(true)
+        self.recorder == nil ? self.startRecording() : self.finishRecording(true)
     }
     
     @IBAction func pausePressed(_ sender: UIButton) {
@@ -144,13 +140,12 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     func recordingSetup() {
         do {
             // getting the directory to save the new audio file to
-            var directory = "temp"
-            if let saveDirectory = self.saveDirectory {
-                directory = saveDirectory
+            if let event = self.eventRelationship, let name = event.name {
+                self.saveDirectory = name
             }
-            
             // check to see the contents of said directory
-            let contents = try self.fileManager.contentsOfDirectory(at: self.getDocumentsDirectory().appendingPathComponent(directory), includingPropertiesForKeys: nil)
+            let url = URL.createFolder(folderName: self.saveDirectory)!
+            let contents = try self.fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
             // get the counts of audio files in the folder
             var recordingCount = 1
             for file in contents {
@@ -158,41 +153,41 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
                     recordingCount += 1
                 }
             }
-            
             // check to see if fileName with id from above exists, slight chance if files are deleted
             self.fileName = "recording\(recordingCount).m4a"
-            while(self.fileManager.fileExists(atPath: directory + "/" + self.fileName)) {
+            while(self.fileManager.fileExists(atPath: self.saveDirectory + "/" + self.fileName)) {
                 recordingCount += 1
                 self.fileName = "recording\(recordingCount).m4a"
             }
             // file should have a unique name now so it can be saved
-            self.mediaRef = directory + "/" + self.fileName
-            
-            // either create a folder with the directory name + URL to it, or get the URL of the existing directory
-            if let url = URL.createFolder(folderName: directory) {
-                let audioFileName = url.appendingPathComponent(self.fileName)
-                print(audioFileName.absoluteString)
-                
-                // prepare the recorder with the info derived from above
-                self.recorder = try AVAudioRecorder(url: audioFileName, settings: settings)
-                self.recorder.delegate = self
-                self.recorder.isMeteringEnabled = true
-                self.recorder.prepareToRecord()
-            } else {
-                self.finishRecording(false)
-            }
+            self.mediaRef = self.saveDirectory + "/" + self.fileName
         } catch {
+            print(error)
             self.finishRecording(false)
         }
     }
     
     func startRecording() {
-        // start the recorder, timer, and swap buttons to currently recording values
-        self.recorder.record()
-        self.recordingTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.recordLoop), userInfo: nil, repeats: true)
-        self.recordButton.setTitle("Stop", for: .normal)
-        self.pauseButton.isEnabled = true
-        self.flagQuoteButton.isEnabled = true
+        print("starting recording")
+        do {
+            let audioFileName = getDocumentsDirectory().appendingPathComponent(self.mediaRef)
+            print(audioFileName.absoluteString)
+            
+            // prepare the recorder with the info derived from above
+            self.recorder = try AVAudioRecorder(url: audioFileName, settings: settings)
+            self.recorder.delegate = self
+            self.recorder.isMeteringEnabled = true
+            self.recorder.prepareToRecord()
+
+            // start the recorder, timer, and swap buttons to currently recording values
+            self.recorder.record()
+            self.recordingTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.recordLoop), userInfo: nil, repeats: true)
+            self.recordButton.setTitle("Stop", for: .normal)
+            self.pauseButton.isEnabled = true
+            self.flagQuoteButton.isEnabled = true
+        } catch {
+            self.finishRecording(false)
+        }
     }
     
     func finishRecording(_ success: Bool) {
@@ -213,17 +208,25 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
         if success {
             // create Recording instance with file ref, name, and current date
             
-            if self.saveDirectory != nil {
-                saveRecording()
+            if self.eventRelationship != nil {
+                self.saveRecording()
                 // need to save this to core data based on the event?
             } else {
                 // show new event modal
                 
                 // Need to setup NewEventViewController as a proper modal?
-                /*self.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-                 self.modalPresentationStyle = .currentContext
-                 self.present(NewEventViewController(), animated: true, completion: newEventCompleted)*/
-                navigationController?.popViewController(animated: true)
+                if let newEventVC = self.storyboard?.instantiateViewController(withIdentifier: "NewEvent") as? NewEventViewController {
+                    newEventVC.callbackHandler = {
+                        (event) in
+                        self.eventRelationship = event
+                        self.moveTempFile()
+                        self.saveRecording()
+                    }
+                    self.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+                    self.modalPresentationStyle = .currentContext
+                    let navBarOnModal: UINavigationController = UINavigationController(rootViewController: newEventVC)
+                    self.present(navBarOnModal, animated: true, completion: nil)
+                }
             }
         } else {
             // recording unsuccessfully finished, delete file created?
@@ -232,13 +235,26 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
             } catch {
                 // file doesn't exist
             }
-            navigationController?.popViewController(animated: true)
         }
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func newEventCompleted() {
-        // somehow save recording to the new event (core data) and move file from temp folder to event folder
-        navigationController?.popViewController(animated: true)
+    func moveTempFile() {
+        if let event = self.eventRelationship {
+            guard let name = event.name else {
+                return;
+            }
+            var newUrl = URL.createFolder(folderName: name)!
+            self.fileName = "recording1.m4a"
+            newUrl.appendPathComponent(self.fileName)
+            let oldUrl = getDocumentsDirectory().appendingPathComponent(self.mediaRef)
+            do {
+                try self.fileManager.moveItem(at: oldUrl, to: newUrl)
+                self.mediaRef = name + "/" + self.fileName
+            } catch {
+                print("Failed to move audio file")
+            }
+        }
     }
     
     @objc func recordLoop() {
@@ -266,12 +282,17 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     @IBAction func flagQuote(_ sender: UIButton) {
         // add current recording time as a flag to the list of flags, update the list view
         if (self.recorder != nil && self.recorder.isRecording) {
-            let flag = Flag(name: "Flag \(self.flags.count)", time: self.recorder.currentTime)
+            let flag = Flag(name: "Flag\(self.flags.count + 1)", time: self.recorder.currentTime)
             self.flags.append(flag!)
             self.flagTable.beginUpdates()
             self.flagTable.insertRows(at: [IndexPath(row: self.flags.count-1, section: 0)], with: .automatic)
             self.flagTable.endUpdates()
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewEventModal" {
+            
+        }
+    }
 }

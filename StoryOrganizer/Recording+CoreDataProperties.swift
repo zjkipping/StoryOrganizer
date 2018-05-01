@@ -47,7 +47,7 @@ extension Recording {
     @NSManaged public func replaceFlags(at indexes: NSIndexSet, with values: [Flag])
 
     @objc(addFlagsObject:)
-    @NSManaged public func addToFlags(_ value: [Flag])
+    @NSManaged public func addToFlags(_ value: Flag)
 
     @objc(removeFlagsObject:)
     @NSManaged public func removeFromFlags(_ value: Flag)

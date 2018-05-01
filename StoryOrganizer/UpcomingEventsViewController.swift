@@ -16,8 +16,10 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.dataSource = self
         tableView.delegate = self
+        
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Lobster", size: 20)! ]
         navigationController?.navigationBar.barTintColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0)
@@ -33,6 +35,7 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
         
         do {
             events = try managedContext.fetch(fetchRequest)
+            print(events)
             tableView.reloadData()
         } catch {
             print("Could not fetch")
@@ -61,16 +64,12 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showNewRecording") {
-            // let destinationController = segue.destination as! NewRecordingViewController
+        if (segue.identifier == "showEventDetails") {
+            let selectedIndexPath = tableView.indexPathForSelectedRow
+            let destinationController = segue.destination as! EventDetailsViewController
             
-            // eventually set this to the Event.name
-            // destinationController.saveDirectory = event.name
-        } else if (segue.identifier == "showNewEvent") {
-            // let destinationController = segue.destination as! NewEventViewController
+            destinationController.event = self.events[selectedIndexPath?.row ?? 0]
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,7 +82,7 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Event", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath)
         let event = events[indexPath.row]
         
         let dateFormatter = DateFormatter()
@@ -104,17 +103,7 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func searchChanged(_ sender: UITextField) {
-        // filter the events list here
-        print(sender.text!)
-    }
-    
-    @IBAction func clickedNew(_ sender: UIButton) {
-        // segue to either new event or new recording
-        // for now segue to new recording, need to research hold button for multiple options
-        
-        performSegue(withIdentifier: "showNewEvent", sender: self)
-        
-        // performSegue(withIdentifie: "showNewRecording", sender: self)
+        print(sender.text ?? "")
     }
     
     func deleteEvent(at indexPath: IndexPath, event: [Event], tableView: UITableView) {
@@ -123,6 +112,8 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
         guard let managedContext = event.managedObjectContext else {
             return
         }
+        
+        // also need to delete the recording files...
 
         managedContext.delete(event)
 
