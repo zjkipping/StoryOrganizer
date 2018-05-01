@@ -27,6 +27,9 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         //initialize UI datepicker on view controller
         createDatePicker()
+        
+        self.title = existingEvent == nil ? "New Event" : "Edit Event"
+        
         nameTextField.text = existingEvent?.name
         topicTextField.text = existingEvent?.topic
         phoneTextField.text = existingEvent?.phone
