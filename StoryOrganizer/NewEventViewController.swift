@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import os.log
 
 class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var topicTextField: UITextField!
@@ -19,6 +21,38 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     
     var callbackHandler: ((Event) -> Void)?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //initialize UI datepicker on view controller
+        createDatePicker()
+
+    }
+    
+    let datePicker = UIDatePicker()
+    
+    func createDatePicker(){
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: false)
+        dateTextField.inputAccessoryView = toolbar
+        //assigning date picker to text field
+        dateTextField.inputView = datePicker
+        datePicker.datePickerMode = .date
+    }
+    
+    @objc func donePressed(){
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: datePicker.date)
+        dateTextField.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+    
     var testEventTopic : String?
     var testEventName: String?
     var testEventphone: String?
@@ -26,13 +60,32 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     var testEventaddress: String?
     var testEventDate: Date?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    
     
     @IBAction func saveNewEvent(_ sender: Any) {
         var checkEmptyField : Bool = true
+        //if there is a value, unwrap it and place it into event struct, else set checkEmptyfield = false
+        //if checkempty field is false, a popup will occur
+        if let topic = topicTextField.text, !topic.isEmpty {
+            testEventTopic = topic
+            topicTextField.layer.borderWidth = 0
+        } else {
+            //change color of textfield for visual cue
+            topicTextField.layer.borderWidth = 1.0
+            topicTextField.layer.borderColor = UIColor.red.cgColor
+            checkEmptyField = false
+        }
+        
+        if let name = nameTextField.text, !name.isEmpty {
+            testEventName = name
+            nameTextField.layer.borderWidth = 0
+        } else {
+            //change color of textfield for visual cue
+            nameTextField.layer.borderWidth = 1.0
+            nameTextField.layer.borderColor = UIColor.red.cgColor
+            checkEmptyField = false
+        }
+        
         //if there is a value, unwrap it and place it into event struct, else set checkEmptyfield = false
         //if checkempty field is false, a popup will occur
         if let topic = topicTextField.text, !topic.isEmpty {
@@ -86,33 +139,18 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         }
         
         if let date = dateTextField.text, !date.isEmpty {
-            //convert string to date
-            let isoDate = date
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-            let date = dateFormatter.date(from:isoDate)
-            let calendar = Calendar.current
-//                let components = calendar.dateComponents([.year, .month, .day], from: date!)
-//                let finalDate = calendar.date(from:components)
-//
-            if let testDate = date{
-            let components = calendar.dateComponents([.year, .month, .day], from: date!)
-                _ = calendar.date(from:components)
-            testEventDate = testDate
+            
+            testEventDate = datePicker.date
             dateTextField.layer.borderWidth = 0
-            }else{
-                checkEmptyField = false
-                dateTextField.layer.borderWidth = 1.0
-                dateTextField.layer.borderColor = UIColor.red.cgColor
-            }
+            
             
         } else {
             //change color of textfield for visual cue
             dateTextField.layer.borderWidth = 1.0
             dateTextField.layer.borderColor = UIColor.red.cgColor
-            checkEmptyField = false
         }
+        
+        
         
         //if statement to check if a textfield is left empty
         if(checkEmptyField == false){
@@ -122,19 +160,21 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         } else {
             //returns to root view controller
             self.navigationController!.popToRootViewController(animated: true)
-        
+            
             if let event = Event(name: testEventName, topic: testEventTopic, phone: testEventphone, email: testEventemail, address: testEventaddress, date: testEventDate){
-        do {
-            try event.managedObjectContext?.save()
-            if let callback = self.callbackHandler {
-                self.dismiss(animated: true) {
-                    callback(event)
+                do {
+                    try event.managedObjectContext?.save()
+                    if let callback = self.callbackHandler {
+                        self.dismiss(animated: true) {
+                            callback(event)
+                        }
+                    }
+                }
+                catch{
+                    print("Could not create entity.")
                 }
             }
         }
-        catch {
-            print("Could not create entity.")
-                }}
-        }
     }
 }
+
