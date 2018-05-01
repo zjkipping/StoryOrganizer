@@ -40,7 +40,6 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
             let dateString = formatter.string(from: datePicker.date)
             dateTextField.text = "\(dateString)"
         }
-        print(existingEvent!)
     }
     
     let datePicker = UIDatePicker()
@@ -75,25 +74,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     var testEventaddress: String?
     var testEventDate: Date?
     
-
-    
-    
     @IBAction func saveNewEvent(_ sender: Any) {
-        var event: Event?
-
-        if let existingEvent = existingEvent {
-            existingEvent.topic = topicTextField.text
-            existingEvent.name = nameTextField.text
-            existingEvent.phone = phoneTextField.text
-            existingEvent.email = emailTextField.text
-            existingEvent.address = addressTextField.text
-            existingEvent.date = datePicker.date
-            
-            event = existingEvent
-        } else{
-            event = Event(name: nameTextField.text, topic: topicTextField.text, phone: phoneTextField.text, email: emailTextField.text, address: addressTextField.text, date: datePicker.date)
-        }
-        
         var checkEmptyField : Bool = true
         //if there is a value, unwrap it and place it into event struct, else set checkEmptyfield = false
         //if checkempty field is false, a popup will occur
@@ -181,7 +162,26 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         } else {
             //returns to root view controller
             self.navigationController!.popToRootViewController(animated: true)
-            if let event = Event(name: testEventName, topic: testEventTopic, phone: testEventphone, email: testEventemail, address: testEventaddress, date: testEventDate){
+            
+            if let existingEvent = existingEvent {
+                    existingEvent.topic = topicTextField.text
+                    existingEvent.name = nameTextField.text
+                    existingEvent.phone = phoneTextField.text
+                    existingEvent.email = emailTextField.text
+                    existingEvent.address = addressTextField.text
+                    existingEvent.date = datePicker.date
+                do {
+                    try existingEvent.managedObjectContext?.save()
+                    if let callback = self.callbackHandler {
+                        self.dismiss(animated: true) {
+                            callback(existingEvent)
+                        }
+                    }
+                }
+                catch{
+                    print("Could not create entity.")
+                }
+            } else if let event = Event(name: testEventName, topic: testEventTopic, phone: testEventphone, email: testEventemail, address: testEventaddress, date: testEventDate){
                 do {
                     try event.managedObjectContext?.save()
                     if let callback = self.callbackHandler {
