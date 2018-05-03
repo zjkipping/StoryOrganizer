@@ -33,6 +33,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     @IBOutlet weak var flagTable: UITableView!
     
     var eventRelationship: Event?
+    var recording: Recording = Recording(name: "", media: "", date: Date.init())!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,22 +54,23 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     
     func saveRecording() {
         // saves the recording/flags and relates them to the proper event
-        if let recording = Recording(name: fileName, media: mediaRef, date: Date.init()) {
-            eventRelationship?.addToRecordings(recording)
+        recording.name = "recording" + fileName
+        recording.media = mediaRef
+        recording.date = Date.init()
+        eventRelationship?.addToRecordings(recording)
+        do {
+            try recording.managedObjectContext?.save()
+        } catch {
+            print("Recording could not be created")
+        }
+        if (!self.flags.isEmpty) {
             do {
-                try recording.managedObjectContext?.save()
-            } catch {
-                print("Recording could not be created")
-            }
-            if (!self.flags.isEmpty) {
-                do {
-                    for flag in self.flags {
-                        recording.addToFlags(flag)
-                        try flag.managedObjectContext?.save()
-                    }
-                } catch {
-                    print("Flag could not be created")
+                for flag in self.flags {
+                    recording.addToFlags(flag)
+                    try flag.managedObjectContext?.save()
                 }
+            } catch {
+                print("Flag could not be created")
             }
         }
     }
@@ -135,42 +137,28 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
         if self.recorder != nil {
             if (self.recorder.isRecording) {
                 self.recorder.pause()
-                self.pauseButton.setTitle("Resume", for: .normal)
+                self.pauseButton.setImage(UIImage(named: "play.png"), for: .normal)
             } else {
                 self.recorder.record()
-                self.pauseButton.setTitle("Pause", for: .normal)
+                self.pauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
             }
         }
     }
     
     func recordingSetup() {
-        do {
-            // getting the directory to save the new audio file to
-            if let event = self.eventRelationship, let name = event.name {
-                self.saveDirectory = name
-            }
-            // check to see the contents of said directory
-            let url = URL.createFolder(folderName: self.saveDirectory)!
-            let contents = try self.fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
-            // get the counts of audio files in the folder
-            var recordingCount = 1
-            for file in contents {
-                if (file.pathExtension.contains("m4a")) {
-                    recordingCount += 1
-                }
-            }
-            // check to see if fileName with id from above exists, slight chance if files are deleted
-            self.fileName = "recording\(recordingCount).m4a"
-            while(self.fileManager.fileExists(atPath: self.saveDirectory + "/" + self.fileName)) {
-                recordingCount += 1
-                self.fileName = "recording\(recordingCount).m4a"
-            }
-            // file should have a unique name now so it can be saved
-            self.mediaRef = self.saveDirectory + "/" + self.fileName
-        } catch {
-            print(error)
-            self.finishRecording(false)
+        // getting the directory to save the new audio file to
+        if let event = self.eventRelationship{
+            self.saveDirectory = event.getID()
         }
+        // create the folder for the event if it doesn't exist
+        if (URL.createFolder(folderName: self.saveDirectory) == nil) {
+            self.finishRecording(false)
+            return;
+        }
+        // check to see if fileName with id from above exists, slight chance if files are deleted
+        self.fileName = "\(self.recording.getID()).m4a"
+        // file should have a unique name now so it can be saved
+        self.mediaRef = self.saveDirectory + "/" + self.fileName
     }
     
     func startRecording() {
@@ -188,7 +176,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
             // start the recorder, timer, and swap buttons to currently recording values
             self.recorder.record()
             self.recordingTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.recordLoop), userInfo: nil, repeats: true)
-            self.recordButton.setTitle("Stop", for: .normal)
+            self.recordButton.setImage(UIImage(named: "stop.png"), for: .normal)
             self.pauseButton.isEnabled = true
             self.flagQuoteButton.isEnabled = true
         } catch {
@@ -202,8 +190,8 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
         self.recorder = nil
         
         // reset the buttons to orig states
-        self.recordButton.setTitle("Record", for: .normal)
-        self.pauseButton.setTitle("Pause", for: .normal)
+        self.recordButton.setImage(UIImage(named: "record.png"), for: .normal)
+        self.pauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
         self.pauseButton.isEnabled = false
         self.flagQuoteButton.isEnabled = false
         self.recordButton.isEnabled = false
@@ -247,16 +235,13 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     
     func moveTempFile() {
         if let event = self.eventRelationship {
-            guard let name = event.name else {
-                return;
-            }
-            var newUrl = URL.createFolder(folderName: name)!
-            self.fileName = "recording1.m4a"
+            var newUrl = URL.createFolder(folderName: event.getID())!
+            self.fileName = "\(recording.getID()).m4a"
             newUrl.appendPathComponent(self.fileName)
             let oldUrl = getDocumentsDirectory().appendingPathComponent(self.mediaRef)
             do {
                 try self.fileManager.moveItem(at: oldUrl, to: newUrl)
-                self.mediaRef = name + "/" + self.fileName
+                self.mediaRef = event.getID() + "/" + self.fileName
             } catch {
                 print("Failed to move audio file")
             }
@@ -266,7 +251,14 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     @objc func recordLoop() {
         // handle updates from the record session: time, channel values, etc...
         if (recorder.isRecording) {
-            self.timeLabel.text = "Record Time: \(String(format: "%.0f", self.recorder.currentTime)) seconds"
+            let minutes: Int = Int(self.recorder.currentTime / 60)
+            
+            let seconds: Int = Int(self.recorder.currentTime.truncatingRemainder(dividingBy: 60))
+            
+            let milliseconds: Int = Int((self.recorder.currentTime.truncatingRemainder(dividingBy: 60) * 100).truncatingRemainder(dividingBy: 100))
+            
+
+            self.timeLabel.text = "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds)):\(String(format: "%02d", milliseconds))"
             
             // some functionality for updating the volume metering
         }
@@ -293,12 +285,6 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
             self.flagTable.beginUpdates()
             self.flagTable.insertRows(at: [IndexPath(row: self.flags.count-1, section: 0)], with: .automatic)
             self.flagTable.endUpdates()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showNewEventModal" {
-            
         }
     }
 }

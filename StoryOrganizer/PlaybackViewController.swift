@@ -62,7 +62,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
-        self.playButton.setTitle("Re-Play", for: .normal)
+        self.playButton.setImage(UIImage(named: "play.png"), for: .normal)
         self.finished = true
     }
     
@@ -106,9 +106,16 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     @objc func playbackLoop() {
         // handle updates from the record session: time, channel values, etc...
         if (self.avPlayer != nil) {
-            let rawSeconds = CMTimeGetSeconds(self.avPlayer.currentTime())
-            let seconds = Double(rawSeconds)
-            self.timeLabel.text = "Current Time: \(String(format: "%.0f", seconds)) seconds"
+            let rawSeconds = Double(CMTimeGetSeconds(self.avPlayer.currentTime()))
+            
+            let minutes: Int = Int(rawSeconds / 60)
+            
+            let seconds: Int = Int(rawSeconds.truncatingRemainder(dividingBy: 60))
+            
+            let milliseconds: Int = Int((rawSeconds.truncatingRemainder(dividingBy: 60) * 100).truncatingRemainder(dividingBy: 100))
+            
+            
+            self.timeLabel.text = "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds)):\(String(format: "%02d", milliseconds))"
         }
     }
     
@@ -118,15 +125,15 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.finished = false
                 self.avPlayer.seek(to: kCMTimeZero)
                 self.avPlayer.play()
-                self.playButton.setTitle("Pause", for: .normal)
+                self.playButton.setImage(UIImage(named: "pause.png"), for: .normal)
                 return
             }
             if (self.avPlayer.timeControlStatus == .playing) {
                 self.avPlayer.pause()
-                self.playButton.setTitle("Resume", for: .normal)
+                self.playButton.setImage(UIImage(named: "resume.png"), for: .normal)
             } else if (self.avPlayer.timeControlStatus == .paused) {
                 self.avPlayer.play()
-                self.playButton.setTitle("Pause", for: .normal)
+                self.playButton.setImage(UIImage(named: "pause.png"), for: .normal)
             }
         }
     }
@@ -137,7 +144,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
             if (self.finished) {
                 self.finished = false
                 self.avPlayer.play()
-                self.playButton.setTitle("Pause", for: .normal)
+                self.playButton.setImage(UIImage(named: "pause.png"), for: .normal)
             }
         }
     }

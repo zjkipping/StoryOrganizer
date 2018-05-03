@@ -38,5 +38,10 @@ public class Event: NSManagedObject {
         self.address = address
         self.date = date
     }
-    
+}
+
+extension Event {
+    public func getID() -> String {
+        return String(self.objectID.uriRepresentation().absoluteString.last ?? "0")
+    }
 }
