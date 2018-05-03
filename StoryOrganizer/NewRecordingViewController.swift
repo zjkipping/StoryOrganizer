@@ -60,13 +60,15 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
             } catch {
                 print("Recording could not be created")
             }
-            do {
-                for flag in self.flags {
-                    recording.addToFlags(flag)
-                    try flag.managedObjectContext?.save()
+            if (!self.flags.isEmpty) {
+                do {
+                    for flag in self.flags {
+                        recording.addToFlags(flag)
+                        try flag.managedObjectContext?.save()
+                    }
+                } catch {
+                    print("Flag could not be created")
                 }
-            } catch {
-                print("Flag could not be created")
             }
         }
     }
