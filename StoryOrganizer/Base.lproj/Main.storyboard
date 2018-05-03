@@ -290,67 +290,61 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rah-v8-DPL">
-                                <rect key="frame" x="16" y="173.5" width="48.5" height="18.5"/>
+                                <rect key="frame" x="16" y="175.5" width="48.5" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-UQ-EXw">
-                                <rect key="frame" x="16" y="227" width="57" height="18.5"/>
+                                <rect key="frame" x="16" y="224" width="52" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hen-Yh-xMb">
-                                <rect key="frame" x="16" y="278.5" width="46" height="18.5"/>
+                                <rect key="frame" x="16" y="272.5" width="46" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5E-dZ-cij">
-                                <rect key="frame" x="16" y="331" width="64" height="18.5"/>
+                                <rect key="frame" x="16" y="321" width="64" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQF-Ke-ySx">
-                                <rect key="frame" x="16" y="374.5" width="40" height="18.5"/>
-                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PH-DOI">
-                                <rect key="frame" x="89.5" y="127" width="44.5" height="18.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-PH-DOI">
+                                <rect key="frame" x="92" y="127" width="44.5" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaK-qC-cpy">
-                                <rect key="frame" x="88" y="331" width="46" height="18.5"/>
+                                <rect key="frame" x="92" y="321" width="39" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puV-H6-kPJ">
-                                <rect key="frame" x="90.5" y="173.5" width="43.5" height="18.5"/>
+                                <rect key="frame" x="92" y="175.5" width="39" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFP-WJ-fCY">
-                                <rect key="frame" x="95" y="227" width="39" height="18.5"/>
+                                <rect key="frame" x="92" y="224" width="39" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kib-do-Qaw">
-                                <rect key="frame" x="92" y="278.5" width="42" height="18.5"/>
+                                <rect key="frame" x="92" y="272.5" width="39" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ar-SU-sFG">
-                                <rect key="frame" x="91" y="374.5" width="43" height="18.5"/>
+                                <rect key="frame" x="92" y="369.5" width="39" height="18.5"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -395,46 +389,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQF-Ke-ySx">
+                                <rect key="frame" x="16" y="369.5" width="40" height="18.5"/>
+                                <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="PoY-fP-ahK" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" id="1TD-Ef-cFm"/>
-                            <constraint firstItem="nQF-Ke-ySx" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="1pA-1R-r7m"/>
-                            <constraint firstItem="nQF-Ke-ySx" firstAttribute="top" secondItem="P5E-dZ-cij" secondAttribute="bottom" constant="25" id="2ZS-Tr-oUq"/>
-                            <constraint firstItem="OEY-SD-q99" firstAttribute="centerX" secondItem="rAx-wy-kEa" secondAttribute="centerX" id="3Ag-s0-HTB"/>
-                            <constraint firstItem="hen-Yh-xMb" firstAttribute="top" secondItem="Ybt-UQ-EXw" secondAttribute="bottom" constant="33" id="4qc-k9-mns"/>
-                            <constraint firstItem="mDx-PH-DOI" firstAttribute="leading" secondItem="oek-uE-7xL" secondAttribute="trailing" constant="30" id="4xa-Sb-7Pi"/>
-                            <constraint firstItem="puV-H6-kPJ" firstAttribute="top" secondItem="mDx-PH-DOI" secondAttribute="bottom" constant="28" id="7BN-Er-7dz"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="8Ar-SU-sFG" secondAttribute="trailing" constant="241" id="A1C-Di-Bgn"/>
-                            <constraint firstItem="eFP-WJ-fCY" firstAttribute="leading" secondItem="Ybt-UQ-EXw" secondAttribute="trailing" constant="22" id="A6Z-qs-cdz"/>
-                            <constraint firstItem="rah-v8-DPL" firstAttribute="top" secondItem="oek-uE-7xL" secondAttribute="bottom" constant="28" id="EOf-3r-z7v"/>
-                            <constraint firstItem="PoY-fP-ahK" firstAttribute="bottom" secondItem="rAx-wy-kEa" secondAttribute="bottom" id="GGL-8I-4cD"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="Kib-do-Qaw" secondAttribute="trailing" constant="241" id="GYC-zf-ciR"/>
-                            <constraint firstItem="Kib-do-Qaw" firstAttribute="top" secondItem="eFP-WJ-fCY" secondAttribute="bottom" constant="33" id="J4d-3l-h9i"/>
-                            <constraint firstItem="PoY-fP-ahK" firstAttribute="top" secondItem="OEY-SD-q99" secondAttribute="bottom" constant="8" id="Ljp-Uz-WpV"/>
-                            <constraint firstItem="puV-H6-kPJ" firstAttribute="leading" secondItem="rah-v8-DPL" secondAttribute="trailing" constant="26" id="PZ2-uV-KMm"/>
-                            <constraint firstItem="Ybt-UQ-EXw" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="Q52-ah-Xkn"/>
-                            <constraint firstItem="Kib-do-Qaw" firstAttribute="leading" secondItem="hen-Yh-xMb" secondAttribute="trailing" constant="30" id="Rm0-GE-GGI"/>
-                            <constraint firstItem="Ybt-UQ-EXw" firstAttribute="top" secondItem="rah-v8-DPL" secondAttribute="bottom" constant="35" id="T0a-Me-usD"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="puV-H6-kPJ" secondAttribute="trailing" constant="241" id="Th5-MM-3fW"/>
-                            <constraint firstItem="rah-v8-DPL" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="TmD-lT-9qa"/>
-                            <constraint firstItem="oek-uE-7xL" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="VSc-S7-dj0"/>
-                            <constraint firstItem="8Ar-SU-sFG" firstAttribute="top" secondItem="AaK-qC-cpy" secondAttribute="bottom" constant="25" id="Xkq-le-CcV"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="eFP-WJ-fCY" secondAttribute="trailing" constant="241" id="Yrw-zl-jnG"/>
-                            <constraint firstItem="PoY-fP-ahK" firstAttribute="top" secondItem="rAx-wy-kEa" secondAttribute="top" constant="403" id="Ywx-XK-NHS"/>
-                            <constraint firstItem="oek-uE-7xL" firstAttribute="top" secondItem="rAx-wy-kEa" secondAttribute="top" constant="63" id="ZCx-RN-vqa"/>
-                            <constraint firstItem="P5E-dZ-cij" firstAttribute="top" secondItem="hen-Yh-xMb" secondAttribute="bottom" constant="34" id="ZFM-At-aFa"/>
-                            <constraint firstItem="hen-Yh-xMb" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="bJ0-xp-U1Z"/>
-                            <constraint firstItem="P5E-dZ-cij" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="gLF-IQ-qr9"/>
-                            <constraint firstItem="8Ar-SU-sFG" firstAttribute="leading" secondItem="nQF-Ke-ySx" secondAttribute="trailing" constant="35" id="h9Q-A2-chU"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="PoY-fP-ahK" secondAttribute="trailing" id="iGx-4q-Ayh"/>
-                            <constraint firstItem="AaK-qC-cpy" firstAttribute="top" secondItem="Kib-do-Qaw" secondAttribute="bottom" constant="34" id="mJM-Q2-BR6"/>
-                            <constraint firstItem="eFP-WJ-fCY" firstAttribute="top" secondItem="puV-H6-kPJ" secondAttribute="bottom" constant="35" id="ml6-q4-dRo"/>
-                            <constraint firstItem="mDx-PH-DOI" firstAttribute="top" secondItem="rAx-wy-kEa" secondAttribute="top" constant="63" id="qpE-40-uEH"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="mDx-PH-DOI" secondAttribute="trailing" constant="241" id="roh-px-g7c"/>
-                            <constraint firstItem="rAx-wy-kEa" firstAttribute="trailing" secondItem="AaK-qC-cpy" secondAttribute="trailing" constant="241" id="wFp-CK-nkd"/>
-                            <constraint firstItem="AaK-qC-cpy" firstAttribute="leading" secondItem="P5E-dZ-cij" secondAttribute="trailing" constant="8" id="wIS-eR-2fk"/>
+                            <constraint firstItem="eFP-WJ-fCY" firstAttribute="top" secondItem="puV-H6-kPJ" secondAttribute="bottom" constant="30" id="0Ze-mv-k29"/>
+                            <constraint firstItem="rah-v8-DPL" firstAttribute="top" secondItem="oek-uE-7xL" secondAttribute="bottom" constant="30" id="4oT-8P-mvG"/>
+                            <constraint firstItem="oek-uE-7xL" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="Bq1-kM-TcZ"/>
+                            <constraint firstItem="mDx-PH-DOI" firstAttribute="top" secondItem="rAx-wy-kEa" secondAttribute="top" constant="63" id="DEQ-nj-Qcx"/>
+                            <constraint firstItem="puV-H6-kPJ" firstAttribute="leading" secondItem="rah-v8-DPL" secondAttribute="trailing" constant="27.5" id="FiH-oS-DWe"/>
+                            <constraint firstItem="hen-Yh-xMb" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="MUt-7S-c8J"/>
+                            <constraint firstItem="OEY-SD-q99" firstAttribute="top" secondItem="8Ar-SU-sFG" secondAttribute="bottom" constant="47.5" id="PoA-dB-Y0l"/>
+                            <constraint firstItem="nQF-Ke-ySx" firstAttribute="top" secondItem="P5E-dZ-cij" secondAttribute="bottom" constant="30" id="Rbc-Yj-Tca"/>
+                            <constraint firstItem="Ybt-UQ-EXw" firstAttribute="top" secondItem="rah-v8-DPL" secondAttribute="bottom" constant="30" id="RfC-n8-Cyf"/>
+                            <constraint firstItem="PoY-fP-ahK" firstAttribute="top" secondItem="OEY-SD-q99" secondAttribute="bottom" constant="8" id="TGh-7u-yRo"/>
+                            <constraint firstItem="Kib-do-Qaw" firstAttribute="leading" secondItem="hen-Yh-xMb" secondAttribute="trailing" constant="30" id="TIo-sG-7vm"/>
+                            <constraint firstItem="nQF-Ke-ySx" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="XX5-Or-dva"/>
+                            <constraint firstItem="Kib-do-Qaw" firstAttribute="top" secondItem="eFP-WJ-fCY" secondAttribute="bottom" constant="30" id="YPt-4Z-OyE"/>
+                            <constraint firstItem="8Ar-SU-sFG" firstAttribute="top" secondItem="AaK-qC-cpy" secondAttribute="bottom" constant="30" id="adP-BW-Mm1"/>
+                            <constraint firstItem="AaK-qC-cpy" firstAttribute="leading" secondItem="P5E-dZ-cij" secondAttribute="trailing" constant="12" id="bc9-ul-HZj"/>
+                            <constraint firstItem="OEY-SD-q99" firstAttribute="centerX" secondItem="rAx-wy-kEa" secondAttribute="centerX" id="dk9-Sn-koW"/>
+                            <constraint firstItem="AaK-qC-cpy" firstAttribute="top" secondItem="Kib-do-Qaw" secondAttribute="bottom" constant="30" id="dwu-kQ-Oxf"/>
+                            <constraint firstItem="rah-v8-DPL" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="e0I-Jo-YMc"/>
+                            <constraint firstItem="P5E-dZ-cij" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="e74-1f-AWG"/>
+                            <constraint firstItem="PoY-fP-ahK" firstAttribute="bottom" secondItem="rAx-wy-kEa" secondAttribute="bottom" id="eY5-u6-e73"/>
+                            <constraint firstItem="Ybt-UQ-EXw" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" constant="16" id="ezo-QB-xIH"/>
+                            <constraint firstItem="8Ar-SU-sFG" firstAttribute="leading" secondItem="nQF-Ke-ySx" secondAttribute="trailing" constant="36" id="grX-uG-j3G"/>
+                            <constraint firstItem="hen-Yh-xMb" firstAttribute="top" secondItem="Ybt-UQ-EXw" secondAttribute="bottom" constant="30" id="gyE-9a-xfZ"/>
+                            <constraint firstItem="mDx-PH-DOI" firstAttribute="leading" secondItem="oek-uE-7xL" secondAttribute="trailing" constant="32.5" id="gyF-db-nNo"/>
+                            <constraint firstItem="eFP-WJ-fCY" firstAttribute="leading" secondItem="Ybt-UQ-EXw" secondAttribute="trailing" constant="24" id="pXk-is-84b"/>
+                            <constraint firstItem="puV-H6-kPJ" firstAttribute="top" secondItem="mDx-PH-DOI" secondAttribute="bottom" constant="30" id="qhx-0F-mox"/>
+                            <constraint firstItem="PoY-fP-ahK" firstAttribute="leading" secondItem="rAx-wy-kEa" secondAttribute="leading" id="sA2-FR-MUj"/>
+                            <constraint firstItem="OEY-SD-q99" firstAttribute="top" secondItem="8Ar-SU-sFG" secondAttribute="bottom" constant="47.5" id="tH4-9N-7tZ"/>
+                            <constraint firstItem="PoY-fP-ahK" firstAttribute="trailing" secondItem="rAx-wy-kEa" secondAttribute="trailing" id="tHD-k5-fvL"/>
+                            <constraint firstItem="P5E-dZ-cij" firstAttribute="top" secondItem="hen-Yh-xMb" secondAttribute="bottom" constant="30" id="tzI-ic-A6D"/>
+                            <constraint firstItem="oek-uE-7xL" firstAttribute="top" secondItem="rAx-wy-kEa" secondAttribute="top" constant="63" id="xfk-GR-Fbq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rAx-wy-kEa"/>
                     </view>
@@ -633,7 +628,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-p1-6mc">
-                                <rect key="frame" x="96.5" y="248" width="183" height="55"/>
+                                <rect key="frame" x="88.5" y="248" width="199.5" height="55"/>
                                 <fontDescription key="fontDescription" name="NanumGothic" family="NanumGothic" pointSize="47"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -681,7 +676,7 @@
         <image name="star.png" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vsy-ck-2cI"/>
-        <segue reference="Mnh-JF-bNb"/>
+        <segue reference="ITd-F0-Zpe"/>
+        <segue reference="rEB-rR-auo"/>
     </inferredMetricsTieBreakers>
 </document>
