@@ -33,7 +33,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     @IBOutlet weak var flagTable: UITableView!
     
     var eventRelationship: Event?
-    var recording: Recording = Recording(name: "", media: "", date: Date.init())!
+    var recording: Recording?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,24 +53,23 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     }
     
     func saveRecording() {
-        // saves the recording/flags and relates them to the proper event
-        recording.name = "recording" + fileName
-        recording.media = mediaRef
-        recording.date = Date.init()
-        eventRelationship?.addToRecordings(recording)
-        do {
-            try recording.managedObjectContext?.save()
-        } catch {
-            print("Recording could not be created")
-        }
-        if (!self.flags.isEmpty) {
+        if let recording = Recording(name: fileName, media: mediaRef, date: Date.init()) {
+            // saves the recording/flags and relates them to the proper event
+            eventRelationship?.addToRecordings(recording)
             do {
-                for flag in self.flags {
-                    recording.addToFlags(flag)
-                    try flag.managedObjectContext?.save()
-                }
+                try recording.managedObjectContext?.save()
             } catch {
-                print("Flag could not be created")
+                print("Recording could not be created")
+            }
+            if (!self.flags.isEmpty) {
+                do {
+                    for flag in self.flags {
+                        recording.addToFlags(flag)
+                        try flag.managedObjectContext?.save()
+                    }
+                } catch {
+                    print("Flag could not be created")
+                }
             }
         }
     }
@@ -156,16 +155,14 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
             return;
         }
         // check to see if fileName with id from above exists, slight chance if files are deleted
-        self.fileName = "\(self.recording.getID()).m4a"
+        self.fileName = "\(randomString(length: 32)).m4a"
         // file should have a unique name now so it can be saved
         self.mediaRef = self.saveDirectory + "/" + self.fileName
     }
     
     func startRecording() {
-        print("starting recording")
         do {
             let audioFileName = getDocumentsDirectory().appendingPathComponent(self.mediaRef)
-            print(audioFileName.absoluteString)
             
             // prepare the recorder with the info derived from above
             self.recorder = try AVAudioRecorder(url: audioFileName, settings: settings)
@@ -236,7 +233,6 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
     func moveTempFile() {
         if let event = self.eventRelationship {
             var newUrl = URL.createFolder(folderName: event.getID())!
-            self.fileName = "\(recording.getID()).m4a"
             newUrl.appendPathComponent(self.fileName)
             let oldUrl = getDocumentsDirectory().appendingPathComponent(self.mediaRef)
             do {
@@ -275,6 +271,21 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
         // gets the path for the general documents directory
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    func randomString(length: Int) -> String {
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
     }
     
     @IBAction func flagQuote(_ sender: UIButton) {

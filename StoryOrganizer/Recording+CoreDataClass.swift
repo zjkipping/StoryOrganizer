@@ -36,9 +36,3 @@ public class Recording: NSManagedObject {
         self.date = date
     }
 }
-
-extension Recording {
-    public func getID() -> String {
-        return String(self.objectID.uriRepresentation().absoluteString.last ?? "0")
-    }
-}

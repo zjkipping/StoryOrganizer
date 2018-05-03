@@ -39,9 +39,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [])
             try AVAudioSession.sharedInstance().setActive(true)
             if let recording = self.recording, let media = recording.media {
-                print(media)
                 let url = getDocumentsDirectory().appendingPathComponent(media)
-                print(url)
                 
                 self.avItem = AVPlayerItem(url: url)
                 
@@ -100,7 +98,6 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let flag = flags[indexPath.row] as! Flag
         self.avPlayer.seek(to: CMTime.init(seconds: flag.time, preferredTimescale: 1))
-        print(self.avPlayer.timeControlStatus)
     }
     
     @objc func playbackLoop() {

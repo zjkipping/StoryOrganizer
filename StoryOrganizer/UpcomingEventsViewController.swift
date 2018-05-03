@@ -146,6 +146,13 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
         }
         
         // also need to delete the recording files...
+        
+        let fileManager = FileManager()
+        do {
+            try fileManager.removeItem(at: getDocumentsDirectory().appendingPathComponent(event.getID()))
+        } catch {
+            print("Failed to delete recording file")
+        }
 
         managedContext.delete(event)
 
@@ -160,5 +167,11 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
 
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        // gets the path for the general documents directory
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }

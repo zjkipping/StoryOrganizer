@@ -92,6 +92,13 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
             return
         }
         
+        let fileManager = FileManager()
+        do {
+            try fileManager.removeItem(at: getDocumentsDirectory().appendingPathComponent(recording.media!))
+        } catch {
+            print("Failed to delete recording file")
+        }
+        
         managedContext.delete(recording)
         
         // also need to delete the m4a file as well at some point...
@@ -100,11 +107,19 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
             try managedContext.save()
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            
         } catch {
             print("Could not delete")
             
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        // gets the path for the general documents directory
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,9 +131,6 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
         performSegue(withIdentifier: "showNewRecording", sender: self)
     }
 
-    @IBAction func editPressed(_ sender: UIBarButtonItem) {
-        
-    }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showNewRecording") {
