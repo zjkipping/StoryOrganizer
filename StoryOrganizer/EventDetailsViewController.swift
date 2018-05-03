@@ -9,8 +9,9 @@
 import UIKit
 
 class EventDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var event: Event?
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var topicLabel: UILabel!

@@ -12,6 +12,10 @@ import CoreData
 class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchTextField: UITextField!
+    var searching: Bool = false
+    var filtered:[String] = []
+    
     var events: [Event] = []
     
     override func viewDidLoad() {
@@ -78,21 +82,30 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        if(searching){
+            return filtered.count
+        } else {
+            return events.count
+        }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath)
+        events.sort(by: {$0.date! < $1.date!})
         let event = events[indexPath.row]
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        
-        cell.textLabel?.text = event.name
-        cell.detailTextLabel?.text = dateFormatter.string(for: event.date)
+        if(searching){
+            cell.textLabel?.text = filtered[indexPath.row]
+            cell.detailTextLabel?.text = dateFormatter.string(from: event.date!)
+        } else {
+            cell.textLabel?.text = event.name
+            cell.detailTextLabel?.text = dateFormatter.string(for: event.date)
+        }
         
         return cell
     }
@@ -104,7 +117,25 @@ class UpcomingEventsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     @IBAction func searchChanged(_ sender: UITextField) {
-        print(sender.text ?? "")
+        let searchText  = searchTextField.text
+        var eventNames: [String] = []
+        for event in events {
+            eventNames.append(event.name!)
+        }
+        
+        filtered = eventNames.filter({ (text) -> Bool in
+            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchText!, options: NSString.CompareOptions.caseInsensitive)
+            return range.location != NSNotFound
+        })
+        if(filtered.count == 0){
+            searching = false;
+        } else {
+            searching = true;
+        }
+        self.tableView.reloadData()
+        
+        //print(sender.text ?? "")
     }
     
     func deleteEvent(at indexPath: IndexPath, event: [Event], tableView: UITableView) {

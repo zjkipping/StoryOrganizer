@@ -234,7 +234,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Purpl" id="zpA-du-YbM">
                         <barButtonItem key="backBarButtonItem" title="Back" id="935-c5-8GG"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="HJk-GC-0ZU">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="HJk-GC-0ZU">
                             <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Events" textAlignment="natural" minimumFontSize="17" id="YxL-KL-t2M">
                                 <rect key="frame" x="16" y="7" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -258,6 +258,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="uHX-IJ-YfI" id="PTm-uB-266"/>
+                        <outlet property="searchTextField" destination="YxL-KL-t2M" id="vnM-Wi-QqE"/>
                         <outlet property="tableView" destination="cDc-av-2is" id="cXL-da-Sjn"/>
                         <segue destination="vfk-5Z-RcN" kind="show" identifier="showNewEvent" id="Mnh-JF-bNb"/>
                         <segue destination="uk9-vg-SIH" kind="show" identifier="showNewRecording" id="Vsy-ck-2cI"/>
@@ -676,7 +677,7 @@
         <image name="star.png" width="1500" height="1500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ITd-F0-Zpe"/>
-        <segue reference="rEB-rR-auo"/>
+        <segue reference="Vsy-ck-2cI"/>
+        <segue reference="Mnh-JF-bNb"/>
     </inferredMetricsTieBreakers>
 </document>
