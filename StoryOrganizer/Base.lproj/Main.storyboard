@@ -634,16 +634,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5aA-CV-GQQ">
+                                <rect key="frame" x="18" y="399" width="339" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="faE-ep-NUw" eventType="valueChanged" id="TcJ-DQ-9Ki"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QqQ-W6-Ilu" firstAttribute="trailing" secondItem="CYI-Dx-eeJ" secondAttribute="trailing" id="0xh-SD-HoO"/>
+                            <constraint firstItem="CYI-Dx-eeJ" firstAttribute="top" secondItem="5aA-CV-GQQ" secondAttribute="bottom" constant="13.5" id="DdA-Ed-Pjc"/>
                             <constraint firstItem="CYI-Dx-eeJ" firstAttribute="top" secondItem="Rzg-H2-hVs" secondAttribute="bottom" constant="50" id="GxC-cU-f3X"/>
+                            <constraint firstItem="5aA-CV-GQQ" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" constant="20" id="Im6-fO-opH"/>
                             <constraint firstItem="akS-PG-MnR" firstAttribute="centerY" secondItem="QqQ-W6-Ilu" secondAttribute="centerY" id="WZk-2h-UA7"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="centerY" secondItem="QqQ-W6-Ilu" secondAttribute="centerY" id="ZUr-Fm-0nd"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="top" secondItem="4oi-p1-6mc" secondAttribute="bottom" constant="35.5" id="aQX-dX-Lk9"/>
                             <constraint firstItem="CYI-Dx-eeJ" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" id="eNX-ev-k4j"/>
+                            <constraint firstItem="QqQ-W6-Ilu" firstAttribute="trailing" secondItem="5aA-CV-GQQ" secondAttribute="trailing" constant="20" id="grO-Qo-uU1"/>
                             <constraint firstItem="QqQ-W6-Ilu" firstAttribute="bottom" secondItem="CYI-Dx-eeJ" secondAttribute="bottom" id="ifT-ay-hw9"/>
                             <constraint firstItem="akS-PG-MnR" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" constant="71" id="m8p-8N-fox"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="leading" secondItem="akS-PG-MnR" secondAttribute="trailing" constant="51" id="rfi-1a-7HG"/>
@@ -661,6 +670,7 @@
                         <outlet property="flagTableView" destination="CYI-Dx-eeJ" id="XkI-fy-8qX"/>
                         <outlet property="playButton" destination="Rzg-H2-hVs" id="6tT-Od-YUA"/>
                         <outlet property="restartButton" destination="akS-PG-MnR" id="riP-3G-3mq"/>
+                        <outlet property="scrubSlider" destination="5aA-CV-GQQ" id="stQ-gM-cfr"/>
                         <outlet property="timeLabel" destination="4oi-p1-6mc" id="ziV-Mj-8zX"/>
                     </connections>
                 </viewController>

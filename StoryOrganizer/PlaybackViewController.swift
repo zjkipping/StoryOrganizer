@@ -15,6 +15,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var flagTableView: UITableView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var scrubSlider: UISlider!
     
     var playbackTimer: Timer!
     var avPlayer: AVPlayer!
@@ -51,6 +52,9 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
 
                 self.playButton.isEnabled = true
                 self.restartButton.isEnabled = true
+                self.scrubSlider.isEnabled = true
+                
+                self.scrubSlider.maximumValue = Float(CMTimeGetSeconds(self.avItem.asset.duration))
             }
         } catch let error {
             print(error.localizedDescription)
@@ -97,12 +101,17 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         let flag = flags[indexPath.row] as! Flag
-        self.avPlayer.seek(to: CMTime.init(seconds: flag.time, preferredTimescale: 1))
+        self.avPlayer.seek(to: CMTime.init(seconds: flag.time, preferredTimescale: 1000))
+    }
+    
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        self.avPlayer.seek(to: CMTime.init(seconds: Double(self.scrubSlider.value), preferredTimescale: 1000))
     }
     
     @objc func playbackLoop() {
         // handle updates from the record session: time, channel values, etc...
         if (self.avPlayer != nil) {
+            self.scrubSlider.value = Float(CMTimeGetSeconds(self.avPlayer.currentTime()))
             let rawSeconds = Double(CMTimeGetSeconds(self.avPlayer.currentTime()))
             
             let minutes: Int = Int(rawSeconds / 60)
@@ -127,7 +136,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             if (self.avPlayer.timeControlStatus == .playing) {
                 self.avPlayer.pause()
-                self.playButton.setImage(UIImage(named: "resume.png"), for: .normal)
+                self.playButton.setImage(UIImage(named: "play.png"), for: .normal)
             } else if (self.avPlayer.timeControlStatus == .paused) {
                 self.avPlayer.play()
                 self.playButton.setImage(UIImage(named: "pause.png"), for: .normal)
@@ -138,11 +147,6 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func restartPressed(_ sender: UIButton) {
         if self.avPlayer != nil {
             self.avPlayer.seek(to: kCMTimeZero)
-            if (self.finished) {
-                self.finished = false
-                self.avPlayer.play()
-                self.playButton.setImage(UIImage(named: "pause.png"), for: .normal)
-            }
         }
     }
     
