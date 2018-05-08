@@ -20,13 +20,19 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
+        
     }
+    @IBAction func editPressed(_ sender: UIBarButtonItem) {
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         if let event = self.event {

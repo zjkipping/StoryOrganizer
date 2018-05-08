@@ -63,6 +63,10 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        flagTableView.reloadData()
+    }
+    
     @objc func playerDidFinishPlaying(note: NSNotification) {
         self.playButton.setImage(UIImage(named: "play.png"), for: .normal)
         self.finished = true
@@ -90,7 +94,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let flag = flags[indexPath.row] as! Flag
         
-        cell.textLabel?.text = "\(flag.name ?? "") \(String(format: "%.2f", flag.time)) seconds"
+        cell.textLabel?.text = "\(flag.name ?? "")  |  \(String(format: "%.2f", flag.time)) seconds"
 
         return cell
     }
@@ -154,5 +158,12 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         // gets the path for the general documents directory
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editRecording" {
+            let destinationController = segue.destination as! EditRecordingViewController
+            destinationController.recording = recording!
+        }
     }
 }

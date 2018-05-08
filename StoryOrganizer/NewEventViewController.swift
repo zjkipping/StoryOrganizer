@@ -162,10 +162,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
             let alert = UIAlertController(title: "Missing Information", message: "Please fill in missing field or enter correct date format.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:"Okay", style: .default, handler:nil))
             self.present(alert, animated:true)
-        } else {
-            //returns to root view controller
-            self.navigationController!.popToRootViewController(animated: true)
-            
+        } else {   
             if let existingEvent = existingEvent {
                     existingEvent.topic = topicTextField.text
                     existingEvent.name = nameTextField.text
@@ -197,6 +194,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
                     print("Could not create entity.")
                 }
             }
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

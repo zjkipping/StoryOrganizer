@@ -87,7 +87,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
         
         let flag = self.flags[indexPath.row]
         
-        cell.textLabel?.text = "\(flag.name ?? "") \(String(format: "%.2f", flag.time)) seconds"
+        cell.textLabel?.text = "\(flag.name ?? "")  |  \(String(format: "%.2f", flag.time)) seconds"
         
         return cell
     }
