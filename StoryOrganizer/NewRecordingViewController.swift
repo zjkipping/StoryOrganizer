@@ -92,6 +92,18 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, UIT
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteFlag(at: indexPath, tableView: flagTable)
+        }
+    }
+    
+    func deleteFlag(at indexPath: IndexPath, tableView: UITableView) {
+        flags.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
     func attemptSession() {
         // attempts to create a Audio Session +  get permission from user
         session = AVAudioSession.sharedInstance()

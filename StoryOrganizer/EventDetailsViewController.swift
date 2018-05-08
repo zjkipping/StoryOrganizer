@@ -101,8 +101,6 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
         managedContext.delete(recording)
         
-        // also need to delete the m4a file as well at some point...
-        
         do {
             try managedContext.save()
             

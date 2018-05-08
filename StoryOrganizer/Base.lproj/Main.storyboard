@@ -640,6 +640,18 @@
                                     <action selector="sliderChanged:" destination="faE-ep-NUw" eventType="valueChanged" id="TcJ-DQ-9Ki"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTQ-Zf-kuc">
+                                <rect key="frame" x="265" y="338" width="54" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="Ufp-mA-uyS"/>
+                                    <constraint firstAttribute="height" constant="54" id="dt5-UR-8jW"/>
+                                </constraints>
+                                <state key="normal" title="Flag Quote" image="star.png"/>
+                                <connections>
+                                    <action selector="flagButtonClicked:" destination="faE-ep-NUw" eventType="touchUpInside" id="xEa-yc-Cid"/>
+                                    <action selector="flagQuote:" destination="uk9-vg-SIH" eventType="touchUpInside" id="9pc-NU-sJx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -654,9 +666,12 @@
                             <constraint firstItem="CYI-Dx-eeJ" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" id="eNX-ev-k4j"/>
                             <constraint firstItem="QqQ-W6-Ilu" firstAttribute="trailing" secondItem="5aA-CV-GQQ" secondAttribute="trailing" constant="20" id="grO-Qo-uU1"/>
                             <constraint firstItem="QqQ-W6-Ilu" firstAttribute="bottom" secondItem="CYI-Dx-eeJ" secondAttribute="bottom" id="ifT-ay-hw9"/>
+                            <constraint firstItem="QqQ-W6-Ilu" firstAttribute="trailing" secondItem="nTQ-Zf-kuc" secondAttribute="trailing" constant="55.5" id="laU-3N-HFc"/>
                             <constraint firstItem="akS-PG-MnR" firstAttribute="leading" secondItem="QqQ-W6-Ilu" secondAttribute="leading" constant="71" id="m8p-8N-fox"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="leading" secondItem="akS-PG-MnR" secondAttribute="trailing" constant="51" id="rfi-1a-7HG"/>
                             <constraint firstItem="Rzg-H2-hVs" firstAttribute="centerX" secondItem="QqQ-W6-Ilu" secondAttribute="centerX" id="rhe-qg-hiw"/>
+                            <constraint firstItem="nTQ-Zf-kuc" firstAttribute="leading" secondItem="Rzg-H2-hVs" secondAttribute="trailing" constant="51" id="uG2-BO-ULv"/>
+                            <constraint firstItem="nTQ-Zf-kuc" firstAttribute="centerY" secondItem="QqQ-W6-Ilu" secondAttribute="centerY" id="v0e-6R-BUl"/>
                             <constraint firstItem="4oi-p1-6mc" firstAttribute="centerX" secondItem="QqQ-W6-Ilu" secondAttribute="centerX" id="y97-3i-lkf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QqQ-W6-Ilu"/>
@@ -667,6 +682,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flagButton" destination="nTQ-Zf-kuc" id="6UH-g2-eWa"/>
                         <outlet property="flagTableView" destination="CYI-Dx-eeJ" id="XkI-fy-8qX"/>
                         <outlet property="playButton" destination="Rzg-H2-hVs" id="6tT-Od-YUA"/>
                         <outlet property="restartButton" destination="akS-PG-MnR" id="riP-3G-3mq"/>

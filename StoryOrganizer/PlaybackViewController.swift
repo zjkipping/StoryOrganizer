@@ -16,6 +16,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var flagTableView: UITableView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scrubSlider: UISlider!
+    @IBOutlet weak var flagButton: UIButton!
     
     var playbackTimer: Timer!
     var avPlayer: AVPlayer!
@@ -53,6 +54,7 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.playButton.isEnabled = true
                 self.restartButton.isEnabled = true
                 self.scrubSlider.isEnabled = true
+                self.flagButton.isEnabled = true
                 
                 self.scrubSlider.maximumValue = Float(CMTimeGetSeconds(self.avItem.asset.duration))
             }
@@ -102,6 +104,58 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let flag = flags[indexPath.row] as! Flag
         self.avPlayer.seek(to: CMTime.init(seconds: flag.time, preferredTimescale: 1000))
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let recording = recording {
+                deleteFlag(at: indexPath, recording: recording, tableView: flagTableView)
+            }
+        }
+    }
+    
+    func deleteFlag(at indexPath: IndexPath, recording: Recording, tableView: UITableView) {
+        guard let flags = recording.flags else {
+            return
+        }
+        
+        let flag = flags[indexPath.row] as! Flag
+        
+        guard let managedContext = flag.managedObjectContext else {
+            return
+        }
+        
+        managedContext.delete(flag)
+        
+        do {
+            try managedContext.save()
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch {
+            print("Could not delete")
+            
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    @IBAction func flagButtonClicked(_ sender: UIButton) {
+        if let recording = recording, let flags = recording.flags {
+            do {
+                if let flag = Flag(name: "Flag\(flags.count + 1)", time: Double(CMTimeGetSeconds(self.avPlayer.currentTime()))) {
+                    var index = 0;
+                    for i in 0 ... flags.count - 1 {
+                        if ((flags[i] as! Flag).time <= flag.time) {
+                            index = i + 1
+                        }
+                    }
+                    recording.insertIntoFlags(flag, at: index)
+                    try flag.managedObjectContext?.save()
+                    flagTableView.reloadData()
+                }
+            } catch {
+                print("Failed to make new flag")
+            }
+        }
     }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
