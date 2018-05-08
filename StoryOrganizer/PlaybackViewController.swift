@@ -146,13 +146,18 @@ class PlaybackViewController: UIViewController, UITableViewDataSource, UITableVi
         if let recording = recording, let flags = recording.flags {
             do {
                 if let flag = Flag(name: "Flag\(flags.count + 1)", time: Double(CMTimeGetSeconds(self.avPlayer.currentTime()))) {
-                    var index = 0;
-                    for i in 0 ... flags.count - 1 {
-                        if ((flags[i] as! Flag).time <= flag.time) {
-                            index = i + 1
+                    if (flags.count > 0) {
+                        var index = 0;
+                        for i in 0 ... flags.count - 1 {
+                            if ((flags[i] as! Flag).time <= flag.time) {
+                                index = i + 1
+                            }
                         }
+                        recording.insertIntoFlags(flag, at: index)
+                    } else {
+                        recording.addToFlags(flag)
                     }
-                    recording.insertIntoFlags(flag, at: index)
+                    
                     try flag.managedObjectContext?.save()
                     flagTableView.reloadData()
                 }

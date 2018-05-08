@@ -74,11 +74,13 @@ class EditRecordingViewController: UIViewController, UITableViewDataSource, UITa
         if let recording = recording, let flags = recording.flags {
             recording.name = recordingNameTextField.text
             do {
-                for i in 0 ... flags.count - 1 {
-                    let flag = flags[i] as! Flag
-                    
-                    flag.name = flagsText[i].text
-                    try flag.managedObjectContext?.save()
+                if (flags.count > 0) {
+                    for i in 0 ... flags.count - 1 {
+                        let flag = flags[i] as! Flag
+                        
+                        flag.name = flagsText[i].text
+                        try flag.managedObjectContext?.save()
+                    }
                 }
                 try recording.managedObjectContext?.save()
                 navigationController?.popViewController(animated: true)
